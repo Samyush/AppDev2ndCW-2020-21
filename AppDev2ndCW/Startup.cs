@@ -33,8 +33,8 @@ namespace AppDev2ndCW
         {
             if (env.IsDevelopment())
             {
-                app.UseExceptionHandler("/error.html");
-                /*app.UseDeveloperExceptionPage();*/
+               /* app.UseExceptionHandler("/error.html");*/
+                app.UseDeveloperExceptionPage();
 
             }
             else
