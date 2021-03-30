@@ -12,5 +12,10 @@ namespace AppDev2ndCW.Controllers
         {
             return View();
         }
+
+        public IActionResult Try()
+        {
+            return View();  
+        }
     }
 }
