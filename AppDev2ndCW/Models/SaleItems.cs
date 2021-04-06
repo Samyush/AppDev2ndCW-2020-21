@@ -7,5 +7,11 @@ namespace AppDev2ndCW.Models
 {
     public class SaleItems
     {
+        public long Id { get; set; }
+        public long Sale_Id { get; set; }
+        public long Book_Id { get; set; }
+        public int Quantity { get; set; }
+        public int Total { get; set; }
+
     }
 }

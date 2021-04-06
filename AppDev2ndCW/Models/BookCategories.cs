@@ -7,5 +7,7 @@ namespace AppDev2ndCW.Models
 {
     public class BookCategories
     {
+        public long Id { get; set; }
+        public string Category { get; set; }
     }
 }
