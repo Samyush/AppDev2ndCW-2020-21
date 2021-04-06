@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace AppDev2ndCW.Models
 {
-    public class Books
+    public class BookInventory
     {
+
     }
 }
