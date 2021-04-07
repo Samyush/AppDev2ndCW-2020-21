@@ -8,6 +8,7 @@ namespace AppDev2ndCW.Controllers
 {
     public class AdminController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
