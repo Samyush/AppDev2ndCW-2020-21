@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace AppDev2ndCW.Models
 {
     public class BookInventory
     {
+        [Key]
         public long Id { get; set; }
         public string Book_name { get; set; }
         public long Author_Id { get; set; }
