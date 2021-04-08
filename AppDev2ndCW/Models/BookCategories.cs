@@ -9,5 +9,6 @@ namespace AppDev2ndCW.Models
     {
         public long Id { get; set; }
         public string Category { get; set; }
+        public ICollection<Customers> Customers { get; set; }
     }
 }
