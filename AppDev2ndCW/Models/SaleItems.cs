@@ -14,7 +14,12 @@ namespace AppDev2ndCW.Models
         public int Quantity { get; set; }
         public int Total { get; set; }
 
-        public ICollection<Customers> Customer { get; set; }
+        [ForeignKey("Sale_Id")]
+        public Sales Sales { get; set; }
 
+        [ForeignKey("Book_Id")]
+        public BookInventory BookInventory { get; set; }
+        
+        
     }
 }

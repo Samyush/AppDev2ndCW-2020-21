@@ -14,5 +14,6 @@ namespace AppDev2ndCW.Models
         public string Customer_Contact { get; set; }
         public string Member_Type { get; set; }
         public DateTime Last_Purchased_Date { get; set; }
+        public ICollection<Sales> Sales { get; set; }
     }
 }

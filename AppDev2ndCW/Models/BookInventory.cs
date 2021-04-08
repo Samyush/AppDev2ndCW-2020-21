@@ -16,5 +16,6 @@ namespace AppDev2ndCW.Models
         public DateTime Stocked_Date { get; set; }
         public int Stock_Quantity { get; set; }
         public DateTime Sales_Date { get; set; }
+        public ICollection<SaleItems> SaleItems { get; set; }
     }
 }
