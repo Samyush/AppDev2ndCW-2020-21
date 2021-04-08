@@ -13,6 +13,7 @@ namespace AppDev2ndCW.Controllers
             return View();
         }
 
+        //need to remove register from home
         public IActionResult Register()
         {
             return View();
@@ -20,6 +21,14 @@ namespace AppDev2ndCW.Controllers
 
         public IActionResult Login()
         {
+            /*if (Login == admin)
+            {
+                return RedirectToAction("Home", "Admin");
+            }
+            else
+            {
+                return RedirectToAction("Home", "Users");
+            }*/
             return View();
         }
     }

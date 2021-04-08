@@ -9,19 +9,20 @@ namespace AppDev2ndCW.Controllers
     public class AdminController : Controller
     {
         [HttpGet]
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         public IActionResult Home()
         {
             return View();
         }
 
-        public IActionResult Try()
+
+        public IActionResult AddUsers() 
         {
-            return View();  
+            return Home();
+        }
+        
+       public IActionResult DeleteUsers()
+        {
+            return Home();
         }
     }
 }
