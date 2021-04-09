@@ -11,6 +11,13 @@ namespace AppDev2ndCW.Controllers
         public IActionResult Index()
         {
             return View();
-        }   
+        } 
+
+        public IActionResult BooksInventory()
+        {
+
+            /*BookInventory bki */
+            return View();
+        }
     }
 }

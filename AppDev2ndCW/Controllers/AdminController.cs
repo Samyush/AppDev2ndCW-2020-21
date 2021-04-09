@@ -16,6 +16,8 @@ namespace AppDev2ndCW.Controllers
 
         public IActionResult Users()
         {
+
+            
             return RedirectToAction("Home", "User");
                 
         }

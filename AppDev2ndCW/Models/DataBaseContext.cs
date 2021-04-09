@@ -8,7 +8,7 @@ namespace AppDev2ndCW.Models
 {
     public class DataBaseContext : DbContext
     {
-        public DbSet<Users> Posts { get; set; }
+        public DbSet<Users> Users { get; set; }
         public DbSet<Customers> Customers { get; set; }
         public DbSet<BookAuthor> BookAuthors { get; set; }
         public DbSet<BookCategories> BookCategories { get; set; }
