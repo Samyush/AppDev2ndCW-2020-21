@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ namespace AppDev2ndCW.Controllers
 {
     public class AdminController : Controller
     {
+        [Authorize]
         [HttpGet]
         public IActionResult Home()
         {
@@ -16,6 +18,8 @@ namespace AppDev2ndCW.Controllers
 
         public IActionResult Users()
         {
+
+            
             return RedirectToAction("Home", "User");
                 
         }

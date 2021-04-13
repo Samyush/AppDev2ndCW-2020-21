@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -6,7 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\vendor\Class.cs" />
+    <Content Remove="wwwroot\vendor\htmlpage.html" />
+    <Content Remove="wwwroot\vendor\index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3">
       <PrivateAssets>all</PrivateAssets>
@@ -15,7 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Books\" />
     <Folder Include="Views\Sales\" />
   </ItemGroup>
 
