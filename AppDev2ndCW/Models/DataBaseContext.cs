@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace AppDev2ndCW.Models
@@ -22,4 +23,5 @@ namespace AppDev2ndCW.Models
             Database.EnsureCreated();
         }
     }
+   
 }

@@ -12,6 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
+using AppDev2ndCW.Services;
 
 namespace AppDev2ndCW
 {
@@ -32,6 +35,15 @@ namespace AppDev2ndCW
                 var connectionString = Configuration.GetConnectionString("DataBaseContext");
                 options.UseSqlServer(connectionString);
             });
+            services.AddScoped<UserService>();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(
+                    options =>
+                    {
+                        options.LoginPath ="/Home/login";
+                    }
+                );
+
 
             services.AddMvc();
             services.AddMvc(options => options.EnableEndpointRouting = false);
@@ -57,8 +69,8 @@ namespace AppDev2ndCW
             /*app.UseRouting();*/
 
             app.UseFileServer();
-
-
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseMvc(routes =>
             {
                 routes.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}"

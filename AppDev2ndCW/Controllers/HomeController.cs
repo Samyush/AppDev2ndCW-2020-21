@@ -1,20 +1,26 @@
 ﻿using AppDev2ndCW.Models;
+using AppDev2ndCW.Services;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace AppDev2ndCW.Controllers
 {
     public class HomeController : Controller
     {
-
         private readonly DataBaseContext dataBaseContext;
+        private readonly UserService _userService;
 
-        public HomeController(DataBaseContext db)
+        public HomeController(DataBaseContext db, UserService userService)
         {
             dataBaseContext = db;
+            _userService = userService;
         }
 
         public IActionResult Index()
@@ -25,17 +31,19 @@ namespace AppDev2ndCW.Controllers
         //need to remove register from home
         public IActionResult Register(Users users)
         {
-            users.contacts = "sd";
+            /*users.contacts = "sd";
             users.email = "sd";
             users.id = "1";
             users.name = "sa";
             dataBaseContext.Users.Add(users);
-            dataBaseContext.SaveChanges();
+            dataBaseContext.SaveChanges();*/
             return View();
         }
 
-        public IActionResult Login()
+       [HttpGet]
+        public IActionResult Login(string ReturnUrl)
         {
+            ViewData["ReturnUrl"] = ReturnUrl;
             /*if (Login == admin)
             {
                 return RedirectToAction("Home", "Admin");
@@ -45,6 +53,40 @@ namespace AppDev2ndCW.Controllers
                 return RedirectToAction("Home", "Users");
             }*/
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(string email, string contact, string ReturnUrl)
+        {
+            //login functionality
+            ViewData["ReturnUrl"] = ReturnUrl;
+
+            if (_userService.TryValidateUser(email,contact, out List<Claim> claims))
+            {
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
+                await HttpContext.SignInAsync(claimsPrincipal);
+                if (ReturnUrl != null)
+                {
+                    return Redirect(ReturnUrl);
+                }
+                else { return Redirect("~/Admin/Home"); }
+            }
+            else
+            {
+                TempData["Error"] = "Invalid username or password";
+                return Redirect("~/Home/Login");
+            }
+            
+          
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return Redirect("Index");
         }
     }
 }
