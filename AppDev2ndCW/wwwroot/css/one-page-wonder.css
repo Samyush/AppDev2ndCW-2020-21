@@ -5,7 +5,7 @@
  */
 
 body {
-  font-family: 'Lato';
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 h1,
@@ -14,8 +14,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Catamaran';
-  font-weight: 800 !important;
+  font-family: 'Lato';
+  font-weight: 100 !important;
 }
 
 .btn-xl {
