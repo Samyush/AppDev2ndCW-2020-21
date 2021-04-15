@@ -19,5 +19,31 @@ namespace AppDev2ndCW.Controllers
             /*BookInventory bki */
             return View();
         }
+
+        public IActionResult DeleteBooksInventory()
+        {
+                
+            /*BookInventory bki */
+            return View();
+        }
+
+        public IActionResult AddBooks()
+        {
+
+            /*BookInventory bki */
+            return View();
+        }
+        public IActionResult AddCategory()
+        {
+                
+            /*BookInventory bki */
+            return View();
+        }
+        public IActionResult AddAuthor()
+        {
+
+            /*BookInventory bki */  
+            return View();
+        }
     }
 }

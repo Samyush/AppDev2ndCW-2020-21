@@ -16,6 +16,19 @@ namespace AppDev2ndCW.Controllers
             return new ContentResult { Content = "Try"};
         }
 
+        public IActionResult AddCustomer()
+        {   
+            return View();
+        }
+        public IActionResult DeleteCustomer()
+        {
+            return View();
+        }
+        public IActionResult ViewCustomerData()
+        {
+            return View();  
+        }
+
         /*[Route("login/{email:string}/{password:string}")]*/
         [Route("login/{email:int}/{password:int}")]
         public IActionResult Login(int email, int password)

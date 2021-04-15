@@ -35,5 +35,18 @@ namespace AppDev2ndCW.Controllers
         {
             return Home();
         }
+
+       /* public IActionResult ()
+        {
+            return Home();
+        }
+        public IActionResult DeleteUsers()
+        {
+            return Home();
+        }
+        public IActionResult DeleteUsers()
+        {
+            return Home();
+        }*/
     }
 }
