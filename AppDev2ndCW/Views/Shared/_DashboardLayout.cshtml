@@ -99,8 +99,8 @@
         <div id="sidebar" class="sidebar py-3">
             <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN</div>
             <ul class="sidebar-menu list-unstyled">
-                <li class="sidebar-list-item"><a href="index.html" class="sidebar-link text-muted active"><i class="o-network-1 mr-3 text-gray"></i><span>Dashboard</span></a></li>
-                <li class="sidebar-list-item"><a href="home" class="sidebar-link text-muted"><i class="o-user-1 mr-3 text-gray"></i><span>Admin</span></a></li>
+                <li class="sidebar-list-item"><a href="@Url.ActionLink("Dashboard", "Users")" class="sidebar-link text-muted active"><i class="o-network-1 mr-3 text-gray"></i><span>Dashboard</span></a></li>
+                <li class="sidebar-list-item"><a href="@Url.ActionLink("Home", "Admin")" class="sidebar-link text-muted"><i class="o-user-1 mr-3 text-gray"></i><span>Admin</span></a></li>
                 <li class="sidebar-list-item">
                     <a href="#" data-toggle="collapse" data-target="#page" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-profile-1 mr-3 text-gray"></i><span>Customer</span></a>
                     <div id="page" class="collapse">
@@ -161,8 +161,8 @@
         </div>
     </div>
     <!-- JavaScript files-->
-    <script src="/vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper.js/umd/popper.min.js"></script>
+    <script src="/vendor//jquery/jquery.min.js"></script>
+    <script src="/vendor/popper.js/umd/popper.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
     @*<script src="vendor/jquery.cookie/jquery.cookie.js"></script>
     <script src="vendor/chart.js/Chart.min.js"></script>

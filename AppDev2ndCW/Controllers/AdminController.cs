@@ -9,7 +9,7 @@ namespace AppDev2ndCW.Controllers
 {
     public class AdminController : Controller
     {
-        [Authorize]
+        /*[Authorize]*/
         [HttpGet]
         public IActionResult Home()
         {
@@ -18,8 +18,6 @@ namespace AppDev2ndCW.Controllers
 
         public IActionResult Users()
         {
-
-            
             return RedirectToAction("Home", "User");
                 
         }
@@ -28,7 +26,7 @@ namespace AppDev2ndCW.Controllers
 
         public IActionResult AddUsers() 
         {
-            return Home();
+            return View();
         }
         
        public IActionResult DeleteUsers()
