@@ -28,8 +28,13 @@ namespace AppDev2ndCW.Controllers
         {
             return View();
         }
-        
-       public IActionResult DeleteUsers()
+
+        public IActionResult AddCustomers()
+        {
+            return View();
+        }
+
+        public IActionResult DeleteUsers()
         {
             return Home();
         }
