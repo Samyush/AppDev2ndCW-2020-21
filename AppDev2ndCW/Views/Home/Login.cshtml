@@ -15,10 +15,8 @@
 --input-padding-y: .75rem;
 }
 
-body {
-    background: #007bff;
-    background: linear-gradient(to right, #0062E6, #33AEFF);
-}
+body { background-image: url('https://www.maxpixel.net/static/photo/1x/Blue-Books-Dark-Book-Blue-Book-Knowledge-2599146.jpg'); 
+       background-size: cover; }
 
 .card-signin {
     border: 0;
@@ -139,9 +137,9 @@ body {
                             <input type="checkbox" class="custom-control-input" id="customCheck1">
                             <label class="custom-control-label" for="customCheck1">Remember password</label>
                         </div>
-                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" style="background-color: #CF000F">Sign in</button>
                         <hr class="my-4">
-                        <a class="d-block text-center mt-2 small" href="@Url.ActionLink("Register", "Home")">Don;t Have an account? Sign Up Instead</a>
+                        <a class="d-block text-center mt-2 small" href="@Url.ActionLink("Register", "Home")">Don't Have an account? Sign Up Instead</a>
                     </form>
                 </div>
             </div>
