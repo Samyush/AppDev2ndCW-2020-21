@@ -1,0 +1,1 @@
+﻿INSERT INTO AppDev2ndCW.dbo.Users(id,name,email,contacts) VALUES (2,'test1','test1@gmail.com','123123');

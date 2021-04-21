@@ -32,8 +32,8 @@ namespace AppDev2ndCW.Controllers
         public IActionResult Register(Users users)
         {
             /*users.contacts = "9860810828";
-            users.email = "admin@admin.com";
-            users.id = "1";
+            users.email = "samyush@admin.com";
+            users.id = "2";
             users.name = "admin";
             dataBaseContext.Users.Add(users);
             dataBaseContext.SaveChanges();*/
