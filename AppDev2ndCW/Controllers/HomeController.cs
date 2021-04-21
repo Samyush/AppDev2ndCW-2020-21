@@ -82,6 +82,8 @@ namespace AppDev2ndCW.Controllers
           
         }
 
+        //logout of the appliation 
+
         [Authorize]
         public async Task<IActionResult> Logout()
         {

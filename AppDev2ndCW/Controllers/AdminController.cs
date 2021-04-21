@@ -9,6 +9,8 @@ namespace AppDev2ndCW.Controllers
 {
     public class AdminController : Controller
     {
+
+        //this is the controller metheod for admin home
         /*[Authorize]*/
         [HttpGet]
         public IActionResult Home()
