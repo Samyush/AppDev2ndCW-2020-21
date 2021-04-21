@@ -12,7 +12,7 @@ Controller method work
 
 
 
-![samyush Banner](https://github.com/Samyush/TikTacToe_AI/blob/master/images/aluCross.png)
+![samyush Banner](http://1.bp.blogspot.com/-15jx1ht9-Ys/VH5CasSmByI/AAAAAAAATdg/S9jVPJpaSmU/s1600/chee1.jpg)
 
 
 # App Dev 2nd CW Group	
