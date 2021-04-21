@@ -9,7 +9,9 @@ namespace AppDev2ndCW.Controllers
 {
     public class AdminController : Controller
     {
-        [Authorize]
+
+        //this is the controller metheod for admin home
+        /*[Authorize]*/
         [HttpGet]
         public IActionResult Home()
         {
@@ -18,8 +20,6 @@ namespace AppDev2ndCW.Controllers
 
         public IActionResult Users()
         {
-
-            
             return RedirectToAction("Home", "User");
                 
         }
@@ -28,10 +28,15 @@ namespace AppDev2ndCW.Controllers
 
         public IActionResult AddUsers() 
         {
-            return Home();
+            return View();
         }
-        
-       public IActionResult DeleteUsers()
+
+        public IActionResult AddCustomers()
+        {
+            return View();
+        }
+
+        public IActionResult DeleteUsers()
         {
             return Home();
         }

@@ -8,10 +8,11 @@ namespace AppDev2ndCW.Controllers
 {
     public class UsersController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Dashboard()
         {
             return View();
         }
+
 
         public IActionResult Login()
         {

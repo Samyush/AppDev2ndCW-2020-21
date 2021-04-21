@@ -23,17 +23,19 @@
     <link rel="shortcut icon" href="img/favicon.png?3">
     <!-- Tweaks for older IEs-->
     @*<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>*@
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>*@
 
     @*<style>
-    html, body {
-        height: 100vh;
-        width: 100vw;
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-    }
-    </style>*@
+        html, body {
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        </style>*@
+
+    @RenderSection("manualCSS", false)
 </head>
 <body>
     <!-- navbar-->
@@ -85,7 +87,7 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown ml-auto">
-                    <a id="userInfo" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src="/img/01.jpg"  style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"></a>
+                    <a id="userInfo" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src="/img/01.jpg" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"></a>
                     <div aria-labelledby="userInfo" class="dropdown-menu">
                         <a href="#" class="dropdown-item"><strong class="d-block text-uppercase headings-font-family">Mark Stephen</strong><small>Web Developer</small></a>
                         <div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a><a href="#" class="dropdown-item">Activity log       </a>
@@ -99,8 +101,8 @@
         <div id="sidebar" class="sidebar py-3">
             <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN</div>
             <ul class="sidebar-menu list-unstyled">
-                <li class="sidebar-list-item"><a href="index.html" class="sidebar-link text-muted active"><i class="o-network-1 mr-3 text-gray"></i><span>Dashboard</span></a></li>
-                <li class="sidebar-list-item"><a href="home" class="sidebar-link text-muted"><i class="o-user-1 mr-3 text-gray"></i><span>Admin</span></a></li>
+                <li class="sidebar-list-item"><a href="@Url.ActionLink("Dashboard", "Users")" class="sidebar-link text-muted active"><i class="o-network-1 mr-3 text-gray"></i><span>Dashboard</span></a></li>
+                <li class="sidebar-list-item"><a href="@Url.ActionLink("Home", "Admin")" class="sidebar-link text-muted"><i class="o-user-1 mr-3 text-gray"></i><span>Admin</span></a></li>
                 <li class="sidebar-list-item">
                     <a href="#" data-toggle="collapse" data-target="#page" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-profile-1 mr-3 text-gray"></i><span>Customer</span></a>
                     <div id="page" class="collapse">
@@ -111,38 +113,38 @@
                     </div>
                 </li>
                 @*<li class="sidebar-list-item">
-            <a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Book</span></a>
-            <div id="pages" class="collapse">
-                <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
-                    <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Category</a></li>
-                    <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Books</a></li>
-                    <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Stock</li>
-                </ul>
-            </div>
-        </li>*@
+                        <a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Book</span></a>
+                        <div id="pages" class="collapse">
+                            <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Category</a></li>
+                                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Books</a></li>
+                                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Stock</li>
+                            </ul>
+                        </div>
+                    </li>*@
                 <li class="sidebar-list-item"><a href="index.html" class="sidebar-link text-muted"><i class="o-home-1 mr-3 text-gray"></i><span>History</span></a></li>
                 <li class="sidebar-list-item">
-                <a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-news-article-1 mr-3 text-gray"></i><span>Books</span></a>
-                <div id="pages" class="collapse">
-                    <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
-                        <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Category</a></li>
-                        <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Books</a></li>
-                        <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Stock</a></li>
-                    </ul>
-                </div>
+                    <a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-news-article-1 mr-3 text-gray"></i><span>Books</span></a>
+                    <div id="pages" class="collapse">
+                        <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Category</a></li>
+                            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Books</a></li>
+                            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Stock</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="sidebar-list-item"><a href="login.html" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-gray"></i><span>Logout</span></a></li>
             </ul>
             @*<div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">EXTRAS</div>
-            <ul class="sidebar-menu list-unstyled">
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-gray"></i><span>Demo</span></a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Demo</span></a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-paperwork-1 mr-3 text-gray"></i><span>Demo</span></a></li>
-                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Demo</span></a></li>
-            </ul>*@
+                <ul class="sidebar-menu list-unstyled">
+                    <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-gray"></i><span>Demo</span></a></li>
+                    <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-gray"></i><span>Demo</span></a></li>
+                    <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-paperwork-1 mr-3 text-gray"></i><span>Demo</span></a></li>
+                    <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Demo</span></a></li>
+                </ul>*@
         </div>
         <div class="page-holder w-100 d-flex flex-wrap">
-            
+
             @RenderBody()
 
             <footer class="footer bg-white shadow align-self-end py-3 px-xl-5 w-100">
@@ -161,13 +163,11 @@
         </div>
     </div>
     <!-- JavaScript files-->
-    <script src="/vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper.js/umd/popper.min.js"></script>
-    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-    @*<script src="vendor/jquery.cookie/jquery.cookie.js"></script>
-    <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-    <script src="js/charts-home.js"></script>*@
-    <script src="/js/front.js"></script>
+    <script src="~/vendor/jquery/jquery.js"></script>
+    <script src="~/vendor/popper.js/popper.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="~/js/front.js"></script>
+
+    @RenderSection("manualJS", false)
 </body>
 </html>
