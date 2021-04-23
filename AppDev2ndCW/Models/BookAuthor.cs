@@ -11,6 +11,6 @@ namespace AppDev2ndCW.Models
         [Key]
         public long Id { get; set; }
         public string Author { get; set; }
-        public ICollection<Customers> Customers{get; set;}
+        //public ICollection<Customers> Customers{get; set;}
     }
 }
