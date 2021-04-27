@@ -1,0 +1,157 @@
+﻿
+@{
+    Layout = "_DashboardLayout";
+}
+
+@*<div class="container">
+    <header class="text-center">
+        <h1 class="display-4 font-weight-bold">Add New Book Category</h1>
+    </header>
+</div>*@
+
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="text-center">
+                <div class="row mb-4">
+                    <div class="col-md-8 mx-auto">
+                        <img src="/img/book.svg" alt="Book SVG" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-10 mx-auto">
+            <form action="" method="post">
+                <div class="row">
+
+                    <!-- Book Title -->
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-book text-muted"></i>
+                            </span>
+                        </div>
+                        <input id="title" type="text" name="title" placeholder="Book Title" class="form-control bg-white border-left-0 border-md" required>
+                    </div>
+
+
+                    <!-- Book Description -->
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-envelope text-muted"></i>
+                            </span>
+                        </div>
+                        <textarea id="description" name="description" placeholder="Book Description" class="form-control bg-white border-left-0 border-md" rows="8"></textarea>
+                    </div>
+
+                    <!-- Book Category -->
+                    <div class="input-group col-lg-6 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-book-open text-muted"></i>
+                            </span>
+                        </div>
+                        <select id="countryCode" name="countryCode" class="custom-select form-control bg-white border-left-0 border-md h-100 font-weight-bold text-muted" required>
+                            <option value="">Choose a Category</option>
+                            <option value="">Poetry</option>
+                            <option value="">Story</option>
+                            <option value="">Novel</option>
+                            <option value="">Biography</option>
+                        </select>
+                    </div>
+
+
+                    <!-- Book Author  -->
+                    <div class="input-group col-lg-6 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-address-book text-muted"></i>
+                            </span>
+                        </div>
+                        <select id="author" name="bookauthor" class="form-control custom-select bg-white border-left-0 border-md" required>
+                            <option value="">Select an author</option>
+                            <option value="">Judah Smith</option>
+                            <option value="">Trevor Noah</option>
+                            <option value="">Julias Malema</option>
+                            <option value="">Michelle Obama</option>
+                        </select>
+                    </div>
+
+                    <!-- Price -->
+                    <div class="input-group col-lg-6 mb-4" required>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-money-bill text-muted"></i>
+                            </span>
+                        </div>
+                        <input id="price" type="number" name="price" placeholder="Price" class="form-control bg-white border-left-0 border-md">
+                    </div>
+
+
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary">Add Book<i class="fas fa-plus ml-2"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--<hr class="my-5" />
+
+    <div my-4>
+        <header class="mb-4">
+            <p class="h3 text-center"> Book Library <i class="fas fa-chevron-down ml-2"></i></p>
+        </header>
+        <div class="row my-4">
+            <div class="col-lg-10 mx-auto">
+                <div class="card border-0 shadow">
+                    <div class="card-body p-5">-->
+
+                        <!-- Responsive table -->
+                        <!--<div class="table-responsive">
+                            <table class="table m-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Author</th>
+                                        <th scope="col">CAtegory</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>The Alchemist</td>
+                                        <td>Paulo Coehelo</td>
+                                        <td>Novels</td>
+                                        <td>-->
+                                            <!-- Call to action buttons -->
+                                            <!--<ul class="list-inline m-0">
+                                                <li class="list-inline-item">
+                                                    <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Add"><i class="fa fa-table"></i></button>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</div>

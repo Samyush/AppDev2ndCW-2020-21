@@ -27,18 +27,19 @@ namespace AppDev2ndCW.Controllers
             return View();
         }
 
-        public IActionResult AddBooks()
+        public IActionResult AddBook()
         {
-
             /*BookInventory bki */
             return View();
         }
-        public IActionResult AddCategory()
+
+        public IActionResult Category()
         {
                 
             /*BookInventory bki */
             return View();
         }
+
         public IActionResult AddAuthor()
         {
 
