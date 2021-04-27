@@ -7,6 +7,13 @@
     Layout = "_DashboardLayout";
 }
 
+@{
+    var claimsPrinciple = User.Claims;
+    var c = claimsPrinciple.Where(a => a.Type == "role").FirstOrDefault();
+    @if (@c.Value.Equals("Admin")){ 
+        <h1>@c.Value</h1>
+    }
+ }
 
 <div class="container-fluid px-xl-5">
     <section class="py-5">

@@ -1,4 +1,5 @@
 ﻿using AppDev2ndCW.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,7 @@ namespace AppDev2ndCW.Services
             else
             {
                 claims.Add(new Claim("email", email));
-                claims.Add(new Claim(ClaimTypes.Email, email));
+                claims.Add(new Claim("role", appUser.role));
             }
             return true;
         }

@@ -72,11 +72,12 @@ namespace AppDev2ndCW.Controllers
                     return Redirect(ReturnUrl);
                 }
                 else { return Redirect("~/Admin/Home"); }
+                
             }
             else
             {
                 TempData["Error"] = "Invalid username or password";
-                return Redirect("~/Home/Login");
+                return Redirect("/");
             }
             
           
