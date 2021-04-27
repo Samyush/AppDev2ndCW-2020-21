@@ -31,3 +31,8 @@ Introduction above.
 >I am a flutter and laravel full stack developer, you can check upon [my instagram profile](https://www.instagram.com/samyush/)
 
 ![End Banner](https://github.com/londonappbrewery/Images/blob/master/readme-end-banner.png)
+
+@ByRasana
+>--unsetted background image in header.masthead
+and hid overflow to eliminate whitespace in background body!
+
