@@ -26,7 +26,7 @@ namespace AppDev2ndCW.Controllers
             //logged in token data retrieve
             var user = new Users
             {
-                name = "admin",
+                name ="m",
                 id = 1,
                 role = "admin",
                 email = "admin@email.com",
