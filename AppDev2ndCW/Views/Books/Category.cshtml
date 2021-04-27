@@ -1,0 +1,110 @@
+﻿@{
+    Layout = "_DashboardLayout";
+}
+
+<div class="container">
+    <header class="text-center">
+        <h1 class="display-4 font-weight-bold">Add New Book Category</h1>
+    </header>
+</div>
+
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="text-center">
+                <div class="row mb-4">
+                    <div class="col-md-6 mx-auto">
+                        <img src="/img/category.svg" alt="category SVG" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+
+            <form action="" method="post">
+                <!-- Category Input -->
+                <div class="form-group mb-4">
+                    <div class="datepicker date input-group p-0 shadow-sm">
+                        <input type="text" placeholder="Please enter the category name" class="form-control py-4 px-4" id="categoryName" required>
+                        <div class="input-group-append"><span class="input-group-text px-4"><i class="fa fa-book-open"></i></span></div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-primary">Add Category <i class="fas fa-check ml-2"></i></button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <hr class="my-5" />
+
+    <div my-4>
+        <header class="mb-4">
+            <p class="h3 text-center">Existing Categories <i class="fas fa-chevron-down ml-2"></i></p>
+        </header>
+        <div class="row my-4">
+            <div class="col-lg-7 mx-auto">
+                <div class="card border-0 shadow">
+                    <div class="card-body p-5">
+
+                        <!-- Responsive table -->
+                        <div class="table-responsive">
+                            <table class="table m-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Category Name</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Novels</td>
+                                        <td>
+                                            <!-- Call to action buttons -->
+                                            <ul class="list-inline m-0">
+                                                <li class="list-inline-item">
+                                                    <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Add"><i class="fa fa-table"></i></button>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Stories</td>
+                                        <td>
+                                            <!-- Call to action buttons -->
+                                            <ul class="list-inline m-0">
+                                                <li class="list-inline-item">
+                                                    <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Add"><i class="fa fa-table"></i></button>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -127,9 +127,9 @@
                     <a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-news-article-1 mr-3 text-gray"></i><span>Books</span></a>
                     <div id="pages" class="collapse">
                         <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
-                            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Category</a></li>
-                            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Books</a></li>
-                            <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Stock</a></li>
+                            <li class="sidebar-list-item"><a href="@Url.ActionLink("Category", "Books")" class="sidebar-link text-muted pl-lg-5">Category</a></li>
+                            <li class="sidebar-list-item"><a href="@Url.ActionLink("AddBook", "Books")" class="sidebar-link text-muted pl-lg-5">Books</a></li>
+                            <li class="sidebar-list-item"><a href="@Url.ActionLink("BooksInventory", "Books")" class="sidebar-link text-muted pl-lg-5">Stock</a></li>
                         </ul>
                     </div>
                 </li>

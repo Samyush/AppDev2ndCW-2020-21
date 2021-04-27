@@ -19,7 +19,7 @@ namespace AppDev2ndCW.Controllers
         }
         //this is the controller metheod for admin home
         //the authorize helps to make sure that only registered users can go into admin dashboard
-        [Authorize]
+        /*[Authorize]*/
         [HttpGet]
         public IActionResult Home()
         {
@@ -97,17 +97,9 @@ namespace AppDev2ndCW.Controllers
             return Home();
         }
 
-       /* public IActionResult ()
+        public IActionResult ManageUsers()
         {
-            return Home();
+            return View();
         }
-        public IActionResult DeleteUsers()
-        {
-            return Home();
-        }
-        public IActionResult DeleteUsers()
-        {
-            return Home();
-        }*/
     }
 }
