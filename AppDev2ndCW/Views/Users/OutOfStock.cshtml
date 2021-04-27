@@ -1,18 +1,16 @@
 ﻿
-@{
-    Layout = "_DashboardLayout";
-}
+@{ Layout = "_DashboardLayout"; }
 
 <div class="container py-5">
     <div class="row">
         <div class="col-md-6 mx-auto">
             <div class="text-center">
-                <div class="row mb-4">
+                <div class="row my-4">
                     <div class="col-md-8 mx-auto">
-                        <img src="/img/inventory.svg" alt="Book SVG" class="img-fluid" />
+                        <img src="/img/out_of_stock.svg" alt="Out of Stock SVG" class="img-fluid" />
                     </div>
                 </div>
-                <p class="h3">Book Inventory</p>
+                <p class="h3">Items Out of Stock</p>
             </div>
         </div>
     </div>
@@ -35,7 +33,6 @@
                                         <th scope="col">Stocked Date</th>
                                         <th scope="col">Stock Quantity</th>
                                         <th scope="col">Sales Date</th>
-                                        <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,17 +45,6 @@
                                         <td>26 April, 2021</td>
                                         <td>100</td>
                                         <td>28 April, 2021</td>
-                                        <td>
-                                            <!-- Call to action buttons -->
-                                            <ul class="list-inline m-0">
-                                                <li class="list-inline-item">
-                                                    <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
-                                                </li>
-                                            </ul>
-                                        </td>
                                     </tr>
 
                                 </tbody>

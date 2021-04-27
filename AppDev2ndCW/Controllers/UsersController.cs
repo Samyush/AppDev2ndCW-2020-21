@@ -26,5 +26,30 @@ namespace AppDev2ndCW.Controllers
             //it ridirects to direct view
             /*return View("~/Views/Admin/home.cshtml");*/
         }
+
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        public IActionResult InactiveItems()
+        {
+            return View();
+        }
+
+        public IActionResult InactiveCustomers()
+        {
+            return View();
+        }
+
+        public IActionResult OutOfStock()
+        {
+            return View();
+        }
+
+        public IActionResult LongStocked()
+        {
+            return View();
+        }
     }
 }

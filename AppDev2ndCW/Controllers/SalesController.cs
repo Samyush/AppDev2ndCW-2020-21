@@ -8,10 +8,16 @@ namespace AppDev2ndCW.Controllers
 {
     public class SalesController : Controller
     {
-        public IActionResult Index()
+        public IActionResult List()
         {
             return View();
         }
+
+        public IActionResult SaleItems()
+        {
+            return View();
+        }
+
         public IActionResult MakeSales()
         {
             return View();

@@ -32,9 +32,10 @@ namespace AppDev2ndCW.Controllers
         public IActionResult Register(Users users)
         {
             /*users.contacts = "9860810828";
-            users.email = "samyush@admin.com";
-            users.id = "2";
+            users.email = "admin@admin.com";
             users.name = "admin";
+            users.password = "admin";
+            users.role = "admin";
             dataBaseContext.Users.Add(users);
             dataBaseContext.SaveChanges();*/
             return View();
@@ -79,7 +80,6 @@ namespace AppDev2ndCW.Controllers
                 return Redirect("~/Home/Login");
             }
             
-          
         }
 
         //logout of the appliation 

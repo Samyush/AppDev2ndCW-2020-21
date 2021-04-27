@@ -24,7 +24,7 @@ namespace AppDev2ndCW.Controllers
         {
             return View();
         }
-        public IActionResult ViewCustomerData()
+        public IActionResult PurchaseHistory()
         {
             return View();  
         }

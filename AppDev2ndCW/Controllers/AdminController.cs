@@ -101,5 +101,10 @@ namespace AppDev2ndCW.Controllers
         {
             return View();
         }
+
+        public IActionResult ManageCustomers()
+        {
+            return View();
+        }
     }
 }

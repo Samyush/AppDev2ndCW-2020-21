@@ -7,50 +7,49 @@
     <div class="row">
         <div class="col-md-6 mx-auto">
             <div class="text-center">
-                <div class="row mb-4">
+                <div class="row my-4">
                     <div class="col-md-8 mx-auto">
-                        <img src="/img/inventory.svg" alt="Book SVG" class="img-fluid" />
+                        <img src="/img/sales.svg" alt="Sales SVG" class="img-fluid" />
                     </div>
                 </div>
-                <p class="h3">Book Inventory</p>
+                <p class="h3">Sales History</p>
             </div>
         </div>
     </div>
 
+    <hr class="my-5" />
+
     <div my-4>
         <div class="row my-4">
-            <div class="col-lg-11 mx-auto">
+            <div class="col-lg-10 mx-auto">
                 <div class="card border-0 shadow">
                     <div class="card-body p-5">
-
-                        <!-- Responsive table -->
+                        <div class="my-3">
+                            <a href="@Url.ActionLink("MakeSales", "Sales")" class="btn btn-primary">Insert New Sale <i class="fas fa-cart-plus ml-2"></i></a>
+                        </div>
                         <div class="table-responsive">
-                            <table class="table m-0">
+                            <table style="width:100%" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Title</th>
-                                        <th scope="col">Author</th>
-                                        <th scope="col">Category</th>
-                                        <th scope="col">Stocked Date</th>
-                                        <th scope="col">Stock Quantity</th>
-                                        <th scope="col">Sales Date</th>
+                                        <th scope="col">Sale ID</th>
+                                        <th scope="col">Sale Date</th>
+                                        <th scope="col">Sale Total</th>
+                                        <th scope="col">Customer</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>The Alchemist</td>
-                                        <td>Paulo Coehelo</td>
-                                        <td>Novels</td>
+                                        <th>Sale 101</th>
                                         <td>26 April, 2021</td>
-                                        <td>100</td>
-                                        <td>28 April, 2021</td>
+                                        <td>Rs 1500</td>
+                                        <td>9813029480</td>
                                         <td>
-                                            <!-- Call to action buttons -->
                                             <ul class="list-inline m-0">
+                                                <li class="list-inline-item">
+                                                    <a href="@Url.ActionLink("SaleItems", "Sales")" class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Add"><i class="fa fa-table"></i></a>
+                                                </li>
                                                 <li class="list-inline-item">
                                                     <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
                                                 </li>
