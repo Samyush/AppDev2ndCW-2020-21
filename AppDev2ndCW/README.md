@@ -12,6 +12,12 @@ Controller method work
 
 
 
+Date: 27th April 2021
+samyush- logout directed to index.html
+validation added 
+passing of data to view working
+#################################
+
 ![samyush Banner](http://1.bp.blogspot.com/-15jx1ht9-Ys/VH5CasSmByI/AAAAAAAATdg/S9jVPJpaSmU/s1600/chee1.jpg)
 
 

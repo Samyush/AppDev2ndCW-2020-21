@@ -23,7 +23,16 @@ namespace AppDev2ndCW.Controllers
         [HttpGet]
         public IActionResult Home()
         {
-            return View();
+            //logged in token data retrieve
+            var user = new Users
+            {
+                name = "admin",
+                id = 1,
+                role = "admin",
+                email = "admin@email.com",
+            };
+
+            return View(user);
         }
 
         public IActionResult Users()

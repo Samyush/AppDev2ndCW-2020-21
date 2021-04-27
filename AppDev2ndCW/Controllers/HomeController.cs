@@ -88,7 +88,7 @@ namespace AppDev2ndCW.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
-            return Redirect("Index");
+            return Redirect("/");
         }
     }
 }
