@@ -41,4 +41,4 @@ Introduction above.
 @ByRasana
 >--unsetted background image in header.masthead
 and hid overflow to eliminate whitespace in background body!
-
+>--removed navbar buttons and sign up link in login page
