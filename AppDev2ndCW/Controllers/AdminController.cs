@@ -45,10 +45,16 @@ namespace AppDev2ndCW.Controllers
             users.contacts = phone;
             users.role = jobtitle;
             users.password = password;
-            dataBaseContext.Users.Add(users);
-            await dataBaseContext.SaveChangesAsync();
-            return RedirectToAction("Home");
-
+            try
+            {
+                dataBaseContext.Users.Add(users);
+                await dataBaseContext.SaveChangesAsync();
+                return RedirectToAction("Home");
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }        
 
         public IActionResult AddCustomers()
@@ -65,9 +71,16 @@ namespace AppDev2ndCW.Controllers
             customers.Customer_Address = customerAddress;
             customers.Member_Type = jobtitle;
             customers.Last_Purchased_Date = lastDate;
-            dataBaseContext.Customers.Add(customers);
-            await dataBaseContext.SaveChangesAsync();
-            return RedirectToAction("Home");
+            try
+            {
+                dataBaseContext.Customers.Add(customers);
+                await dataBaseContext.SaveChangesAsync();
+                return RedirectToAction("Home");
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public IActionResult DeleteUsers()
