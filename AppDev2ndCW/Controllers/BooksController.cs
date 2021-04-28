@@ -27,17 +27,11 @@ namespace AppDev2ndCW.Controllers
 
         public IActionResult BooksInventory()
         {
-
             /*BookInventory bki */
             return View();
         }
 
-        public IActionResult DeleteBooksInventory()
-        {
-                
-            /*BookInventory bki */
-            return View();
-        }
+       
 
         //this section for adding category
 
@@ -99,7 +93,13 @@ namespace AppDev2ndCW.Controllers
             }
         }
 
-       
+        public IActionResult DeleteBooksInventory(int id)
+        {
+            var books_data = dataBaseContext.BookInventory.Where(x => x.Id == id).First();
+            dataBaseContext.BookInventory.Remove(books_data);
+            dataBaseContext.SaveChanges();
+            return Redirect("~/Books/BooksInventory");
+        }
 
         //this section for add author
 
