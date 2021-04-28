@@ -23,8 +23,9 @@ namespace AppDev2ndCW.Controllers
             _userService = userService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(bool Islogout = false)
         {
+            ViewBag.islogout = Islogout;
             return View();
         }
 

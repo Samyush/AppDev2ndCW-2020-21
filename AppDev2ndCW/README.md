@@ -7,6 +7,7 @@ Controller method work
 					   2.  Login() -> retuns login view
 					   3.  [HttpPost]Login() -> to authorize a user, logs in if the credentials are correct
 					   4.  Logout() -> logs out the user and deletes the cookie
+					  
 
 2-> AdminConroller ->  1.  Home() -> View with addition of adding customers, users and edit users
 					   2.  AddUser() -> View with Add user layout
@@ -19,6 +20,7 @@ Controller method work
 					   9.  ManageCustomers() -> to get data of customer from database and display in datatable
 					   10. DeleteCustomers(int id) -> deletes the selected customer
 					   11. EditCustomers() -> need to pass id, edits the customer data
+					   12. Add toastr for add, delete user and add, delete customer
 
 3-> UserServices ->    1.  GetUserById(int id) -> Gets the current user's id
 					   2.  TryValidateUser() -> checks if the credentials entered while logging in is registered in the database or not.
@@ -37,7 +39,13 @@ Controller method work
 					   11. [HttpPost]AddAuthor() -> add new author
 					   12. DeleteAuthors(int id)
 					   13. EditAuthors() -> need to pass id while executing
-
+					   14. Add toastr for add, delete book inventory and add, delete book category
+//
+>--unsetted background image in header.masthead
+and hid overflow to eliminate whitespace in background body!
+>--removed navbar buttons and sign up link in login page
+>--rendered customer data in datatable, added background image to remove whitespace, removed placeholder in login page to eliminated congested space
+//
 Date: 27th April 2021
 samyush- logout directed to index.html
 validation added 
@@ -64,8 +72,4 @@ Introduction above.
 
 ![End Banner](https://github.com/londonappbrewery/Images/blob/master/readme-end-banner.png)
 
-@ByRasana
->--unsetted background image in header.masthead
-and hid overflow to eliminate whitespace in background body!
->--removed navbar buttons and sign up link in login page
->--rendered customer data in datatable, added background image to remove whitespace, removed placeholder in login page to eliminated congested space
+

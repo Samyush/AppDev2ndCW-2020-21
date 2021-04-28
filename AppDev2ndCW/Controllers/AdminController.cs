@@ -22,8 +22,13 @@ namespace AppDev2ndCW.Controllers
         //the authorize helps to make sure that only registered users can go into admin dashboard
         /*[Authorize]*/
         [HttpGet]
-        public IActionResult Home()
+        public IActionResult Home(bool Iscustadd = false, bool Isdeletecust = false, bool Isdeleteuser = false, bool Isadduser = false, bool Islogin = false)
         {
+            ViewBag.islogin = Islogin;
+            ViewBag.iscustadd = Iscustadd;
+            ViewBag.isdeletecust = Isdeletecust;
+            ViewBag.isdeleteuser = Isdeleteuser;
+            ViewBag.isadduser = Isadduser;
             //logged in token data retrieve
             var user = new Users
             {
@@ -59,7 +64,7 @@ namespace AppDev2ndCW.Controllers
             {
                 dataBaseContext.Users.Add(users);
                 await dataBaseContext.SaveChangesAsync();
-                return RedirectToAction("Home");
+                return RedirectToAction("Home", new { Isadduser = true });
             }
             catch (Exception)
             {
@@ -85,7 +90,7 @@ namespace AppDev2ndCW.Controllers
             {
                 dataBaseContext.Customers.Add(customers);
                 await dataBaseContext.SaveChangesAsync();
-                return RedirectToAction("Home");
+                return RedirectToAction("Home", new { Iscustadd = true });
             }
             catch (Exception)
             {
@@ -106,7 +111,7 @@ namespace AppDev2ndCW.Controllers
             var user_data = dataBaseContext.Users.Where(x => x.id == id).First();
             dataBaseContext.Users.Remove(user_data);
             dataBaseContext.SaveChanges();
-            return Redirect("~/Admin/Home");
+            return RedirectToAction("Home", new { Isdeleteuser = true });
         }
 
         
@@ -144,7 +149,7 @@ namespace AppDev2ndCW.Controllers
             var customer_data = dataBaseContext.Customers.Where(x => x.Id == id).First();
             dataBaseContext.Customers.Remove(customer_data);
             dataBaseContext.SaveChanges();
-            return Redirect("~/Admin/Home");
+            return RedirectToAction("Home", new { Isdeletecust = true });
         }
 
         public async Task<IActionResult> EditCustomers(Customers customers, string customerName, string email, string phone, string customerAddress, string jobtitle, DateTime lastDate)

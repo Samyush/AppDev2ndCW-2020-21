@@ -16,7 +16,6 @@ namespace AppDev2ndCW.Controllers
 
         public IActionResult Login()
         {
-
             //the below method directs to Admin Controller Class and Home Method
             return RedirectToAction("Home", "Admin");
 

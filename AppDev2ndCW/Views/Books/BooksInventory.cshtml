@@ -2,7 +2,24 @@
 @{
     Layout = "_DashboardLayout";
 }
-
+@if (ViewBag.issuccess)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>New book added successfully!</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+else if (ViewBag.isdelete)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Book Deleted!</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
 <div class="container py-5">
     <div class="row">
         <div class="col-md-6 mx-auto">
@@ -42,22 +59,22 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                    <tr>
-                                        <td>@item.Book_name</td>
-                                        <td>@item.Author_Id</td>
-                                        <td>@item.Description</td>
-                                        <td>@item.Category_Id</td>
-                                        <td>@item.Price</td>
-                                        <td>@item.Stocked_Date</td>
-                                        <td>@item.Stock_Quantity</td>
-                                        <td>@item.Sales_Date</td>
-                                          <th>
-                                             <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
-                                          </th>
-                                          <th>
-                                             <a href="@Url.Action("DeleteBooksInventory","Books",new { item.Id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
-                                          </th>
-                                    </tr>
+                                        <tr>
+                                            <td>@item.Book_name</td>
+                                            <td>@item.Author_Id</td>
+                                            <td>@item.Description</td>
+                                            <td>@item.Category_Id</td>
+                                            <td>@item.Price</td>
+                                            <td>@item.Stocked_Date</td>
+                                            <td>@item.Stock_Quantity</td>
+                                            <td>@item.Sales_Date</td>
+                                            <th>
+                                                <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                            </th>
+                                            <th>
+                                                <a href="@Url.Action("DeleteBooksInventory","Books",new { item.Id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                                            </th>
+                                        </tr>
                                     }
 
                                 </tbody>

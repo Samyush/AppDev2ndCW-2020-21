@@ -6,14 +6,67 @@
 @{
     Layout = "_DashboardLayout";
 }
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Successfully Logged In!</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+@if (ViewBag.iscustadd)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>New customer added successfully!</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+else if (ViewBag.isdeletecust)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Customer Deleted!</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+else if (ViewBag.isdeleteuser)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>User Deleted!</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+else if (ViewBag.isadduser)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>User added successfully!</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+else if (ViewBag.islogin)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Successfully Logged In!</strong> Welcome to Pustakalya Admin Panel.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
 
 @{
     var claimsPrinciple = User.Claims;
     var c = claimsPrinciple.Where(a => a.Type == "role").FirstOrDefault();
-    @if (@c.Value.Equals("Admin")){ 
+    @if (@c.Value.Equals("Admin"))
+    {
         <h1>@c.Value</h1>
     }
- }
+}
 
 <div class="container-fluid">
     <section class="py-5">

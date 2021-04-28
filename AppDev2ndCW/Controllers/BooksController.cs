@@ -25,8 +25,10 @@ namespace AppDev2ndCW.Controllers
             return View();
         } */
 
-        public IActionResult BooksInventory()
+        public IActionResult BooksInventory(bool Issuccess = false, bool Isdelete = false)
         {
+            ViewBag.issuccess = Issuccess;
+            ViewBag.isdelete = Isdelete;
             /*BookInventory bki */
             var bookList = dataBaseContext.BookInventory.ToArray();
             return View(bookList);
@@ -36,8 +38,10 @@ namespace AppDev2ndCW.Controllers
 
         //this section for adding category
 
-        public IActionResult Category()
+        public IActionResult Category(bool Issuccess = false, bool Isdeletecat = false)
         {
+            ViewBag.issuccess = Issuccess;
+            ViewBag.isdeletecat = Isdeletecat;
             var categoryList = dataBaseContext.BookCategories.ToArray();
             return View(categoryList);
         }
@@ -53,7 +57,7 @@ namespace AppDev2ndCW.Controllers
             {
                 dataBaseContext.BookCategories.Add(categoriesIs);
                 await dataBaseContext.SaveChangesAsync();
-                return RedirectToAction("~/Books/Category");
+                return RedirectToAction("Category", new { Issuccess = true });
             }
             catch (Exception)
             {
@@ -66,7 +70,7 @@ namespace AppDev2ndCW.Controllers
             var category_data = dataBaseContext.BookCategories.Where(x => x.Id == id).First();
             dataBaseContext.BookCategories.Remove(category_data);
             dataBaseContext.SaveChanges();
-            return Redirect("~/Books/Category");
+            return RedirectToAction("Category", new { Isdeletecat = true});
         }
 
         public async Task<IActionResult> EditCategory(BookCategories categoriesIs, string catName)
@@ -85,8 +89,9 @@ namespace AppDev2ndCW.Controllers
         }
 
         //this section for adding book
-        public IActionResult AddBook()
+        public IActionResult AddBook(bool Issuccess = false)
         {
+            ViewBag.issuccess = Issuccess;
             /*BookInventory bki */
             ViewBag.categoryList = dataBaseContext.BookCategories.ToArray();
             ViewBag.authorList = dataBaseContext.BookAuthors.ToArray();
@@ -108,7 +113,7 @@ namespace AppDev2ndCW.Controllers
             {
                 dataBaseContext.BookInventory.Add(books);
                 await dataBaseContext.SaveChangesAsync();
-                return RedirectToAction("BooksInventory");
+                return RedirectToAction("BooksInventory", new { Issuccess = true });
             }
             catch (Exception)
             {
@@ -121,7 +126,7 @@ namespace AppDev2ndCW.Controllers
             var books_data = dataBaseContext.BookInventory.Where(x => x.Id == id).First();
             dataBaseContext.BookInventory.Remove(books_data);
             dataBaseContext.SaveChanges();
-            return Redirect("~/Books/BooksInventory");
+            return RedirectToAction("BooksInventory", new { Isdelete = true });
         }
 
         public async Task<IActionResult> EditBooks(BookInventory books, string bookName, string description, int quantity, int rate, int author, int category, DateTime stocked_date)
