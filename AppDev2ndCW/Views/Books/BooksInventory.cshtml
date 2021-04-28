@@ -30,7 +30,7 @@
                                     <tr>
                                         <th scope="col">Title</th>
                                         <th scope="col">Author ID</th>
-                                        @*<th scope="col">Desc</th>*@
+                                        <th scope="col">Desc</th>
                                         <th scope="col">Category ID</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Stocked Date</th>
@@ -45,7 +45,7 @@
                                     <tr>
                                         <td>@item.Book_name</td>
                                         <td>@item.Author_Id</td>
-                                        @*<td>@item.Description</td>*@
+                                        <td>@item.Description</td>
                                         <td>@item.Category_Id</td>
                                         <td>@item.Price</td>
                                         <td>@item.Stocked_Date</td>
@@ -55,7 +55,7 @@
                                              <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
                                           </th>
                                           <th>
-                                             <button href="@Url.Action("Delete",new { item.Id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                             <a href="@Url.Action("DeleteBooksInventory","Books",new { item.Id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
                                           </th>
                                     </tr>
                                     }

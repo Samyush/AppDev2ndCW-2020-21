@@ -28,17 +28,20 @@ namespace AppDev2ndCW.Controllers
         public IActionResult BooksInventory()
         {
             /*BookInventory bki */
-            return View();
+            var bookList = dataBaseContext.BookInventory.ToArray();
+            return View(bookList);
         }
-
        
+
 
         //this section for adding category
 
         public IActionResult Category()
         {
-            return View();
+            var categoryList = dataBaseContext.BookCategories.ToArray();
+            return View(categoryList);
         }
+        
 
         [HttpPost]
         public async Task<IActionResult> AddCategory(BookCategories categoriesIs, string catName)
@@ -50,7 +53,7 @@ namespace AppDev2ndCW.Controllers
             {
                 dataBaseContext.BookCategories.Add(categoriesIs);
                 await dataBaseContext.SaveChangesAsync();
-                return RedirectToAction("BooksInventory");
+                return RedirectToAction("~/Books/Category");
             }
             catch (Exception)
             {
@@ -58,8 +61,28 @@ namespace AppDev2ndCW.Controllers
             }
         }
 
-        
+        public IActionResult DeleteCategory(int id)
+        {
+            var category_data = dataBaseContext.BookCategories.Where(x => x.Id == id).First();
+            dataBaseContext.BookCategories.Remove(category_data);
+            dataBaseContext.SaveChanges();
+            return Redirect("~/Books/Category");
+        }
 
+        public async Task<IActionResult> EditCategory(BookCategories categoriesIs, string catName)
+        {
+            categoriesIs.Category = catName;
+            try
+            {
+                dataBaseContext.BookCategories.Update(categoriesIs);
+                await dataBaseContext.SaveChangesAsync();
+                return RedirectToAction("~/Books/Category");
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         //this section for adding book
         public IActionResult AddBook()
@@ -101,6 +124,27 @@ namespace AppDev2ndCW.Controllers
             return Redirect("~/Books/BooksInventory");
         }
 
+        public async Task<IActionResult> EditBooks(BookInventory books, string bookName, string description, int quantity, int rate, int author, int category, DateTime stocked_date)
+        {
+            books.Book_name = bookName;
+            books.Description = description;
+            books.Stock_Quantity = quantity;
+            books.Price = rate;
+            books.Author_Id = author;
+            books.Category_Id = category;
+            books.Stocked_Date = stocked_date;
+            try
+            {
+                dataBaseContext.BookInventory.Update(books);
+                await dataBaseContext.SaveChangesAsync();
+                return RedirectToAction("~/Books/BooksInventory");
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         //this section for add author
 
         public IActionResult AddAuthor(BookAuthor authorIs)
@@ -123,6 +167,30 @@ namespace AppDev2ndCW.Controllers
             try
             {
                 dataBaseContext.BookAuthors.Add(authorIs);
+                await dataBaseContext.SaveChangesAsync();
+                return RedirectToAction("BooksInventory");
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public IActionResult DeleteAuthors(int id)
+        {
+            var author_data = dataBaseContext.BookAuthors.Where(x => x.Id == id).First();
+            dataBaseContext.BookAuthors.Remove(author_data);
+            dataBaseContext.SaveChanges();
+            return Redirect("~/Books/BooksInventory");
+        }
+
+        public async Task<IActionResult> EditAuthors(BookAuthor authorIs, string authorName)
+        {
+            authorIs.Author = authorName;
+
+            try
+            {
+                dataBaseContext.BookAuthors.Update(authorIs);
                 await dataBaseContext.SaveChangesAsync();
                 return RedirectToAction("BooksInventory");
             }
