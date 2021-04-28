@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -27,9 +28,9 @@ namespace AppDev2ndCW.Controllers
 
         public IActionResult BooksInventory()
         {
-
-            /*BookInventory bki */
-            return View();
+            //var customers = dataBaseContext.Customers.Count();
+            var bookList = dataBaseContext.BookInventory.ToArray();
+            return View(bookList);
         }
 
         public IActionResult DeleteBooksInventory()
@@ -43,7 +44,9 @@ namespace AppDev2ndCW.Controllers
 
         public IActionResult Category()
         {
-            return View();
+            //var customers = dataBaseContext.Customers.Count();
+            var categoryList = dataBaseContext.BookCategories.ToArray();
+            return View(categoryList);
         }
 
         [HttpPost]
@@ -69,7 +72,7 @@ namespace AppDev2ndCW.Controllers
         //this section for adding book
         public IActionResult AddBook()
         {
-            /*BookInventory bki */
+          
             return View();
         }
 

@@ -53,50 +53,25 @@
                             <table class="table m-0">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
+                                        <th scope="col">SN</th>
                                         <th scope="col">Category Name</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                     @foreach (var item in Model)
+                                    {
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>Novels</td>
-                                        <td>
-                                            <!-- Call to action buttons -->
-                                            <ul class="list-inline m-0">
-                                                <li class="list-inline-item">
-                                                    <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Add"><i class="fa fa-table"></i></button>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
-                                                </li>
-                                            </ul>
-                                        </td>
+                                        <td>@item.Id</td>
+                                        <td>@item.Category</td>
+                                          <th>
+                                             <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                          </th>
+                                          <th>
+                                             <button href="@Url.Action("Delete",new { item.Id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                          </th>
                                     </tr>
-
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Stories</td>
-                                        <td>
-                                            <!-- Call to action buttons -->
-                                            <ul class="list-inline m-0">
-                                                <li class="list-inline-item">
-                                                    <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Add"><i class="fa fa-table"></i></button>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                    </tr>
+                                    }
 
                                 </tbody>
                             </table>
