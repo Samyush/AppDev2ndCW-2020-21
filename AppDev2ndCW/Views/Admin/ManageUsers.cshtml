@@ -47,7 +47,7 @@
                                                         <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                        <button href="@Url.Action("Delete",new { item.id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                                        <a href="@Url.Action("DeleteUsers","Admin",new { item.id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
                                                     </li>
                                                 </ul>
                                             </td>

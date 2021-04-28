@@ -91,48 +91,58 @@ namespace AppDev2ndCW.Controllers
                 return null;
             }
         }
-
-       
         
+        //to display the user's data in data table
+        public IActionResult ManageUsers()
+        {
+            var userList = dataBaseContext.Users.ToArray();
+            return View(userList);
+        }
+
+        //to delete user from the data table
         public IActionResult DeleteUsers(int id)
         {
             var user_data = dataBaseContext.Users.Where(x => x.id == id).First();
             dataBaseContext.Users.Remove(user_data);
             dataBaseContext.SaveChanges();
-            return Home();
-        }
-        
-        public IActionResult ManageUsers()
-        {
-            //var users = dataBaseContext.Users.Count();
-            var userList = dataBaseContext.Users.ToArray();
-            return View(userList);
+            return Redirect("~/Admin/Home");
         }
 
-       /* [HttpPut]
-        public async Task<IActionResult> EditUsers(Users users, string fullName, string email, string phone, string jobtitle, string password)
-        {
+        /* [HttpPut]
+         public async Task<IActionResult> EditUsers(Users users, string fullName, string email, string phone, string jobtitle, string password)
+         {
 
-            users.name = fullName;
-            users.email = email;
-            users.contacts = phone;
-            users.role = jobtitle;
-            users.password = password;
-            try
-            {
-                dataBaseContext.Users.Update(users);
-                await dataBaseContext.SaveChangesAsync();
-                return RedirectToAction("Home");
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }*/
+             users.name = fullName;
+             users.email = email;
+             users.contacts = phone;
+             users.role = jobtitle;
+             users.password = password;
+             try
+             {
+                 dataBaseContext.Users.Update(users);
+                 await dataBaseContext.SaveChangesAsync();
+                 return RedirectToAction("Home");
+             }
+             catch (Exception)
+             {
+                 return null;
+             }
+         }*/
 
+        //to display customer's data in the data table
         public IActionResult ManageCustomers()
         {
             return View();
         }
+
+        //to delete customer's data from the data table
+        public IActionResult DeleteCustomers(int id)
+        {
+            var customer_data = dataBaseContext.Customers.Where(x => x.Id == id).First();
+            dataBaseContext.Customers.Remove(customer_data);
+            dataBaseContext.SaveChanges();
+            return Redirect("~/Admin/Home");
+        }
+
     }
 }
