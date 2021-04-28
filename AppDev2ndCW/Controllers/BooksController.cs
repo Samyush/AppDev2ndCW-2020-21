@@ -15,13 +15,15 @@ namespace AppDev2ndCW.Controllers
         {
             dataBaseContext = db;
         }
-            
-        public IActionResult Index()
+           
+        
+        //index not in function
+       /* public IActionResult Index()
         {
             //pass data
 
             return View();
-        } 
+        } */
 
         public IActionResult BooksInventory()
         {
@@ -37,6 +39,34 @@ namespace AppDev2ndCW.Controllers
             return View();
         }
 
+        //this section for adding category
+
+        public IActionResult Category()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddCategory(BookCategories categoriesIs, string catName)
+        {
+            //categoriesIs.Id = id;
+            categoriesIs.Category = catName;
+
+            try
+            {
+                dataBaseContext.BookCategories.Add(categoriesIs);
+                await dataBaseContext.SaveChangesAsync();
+                return RedirectToAction("BooksInventory");
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+
+
+        //this section for adding book
         public IActionResult AddBook()
         {
             /*BookInventory bki */
@@ -56,7 +86,7 @@ namespace AppDev2ndCW.Controllers
             {
                 dataBaseContext.BookInventory.Add(books);
                 await dataBaseContext.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("BooksInventory");
             }
             catch (Exception)
             {
@@ -65,28 +95,31 @@ namespace AppDev2ndCW.Controllers
         }
 
        
+
+        //this section for add author
+
         public IActionResult AddAuthor(BookAuthor authorIs)
         {
             //authorIs.Id = 1;
-            authorIs.Author = "ram";
+            /*authorIs.Author = "ram";
             dataBaseContext.BookAuthors.Add(authorIs);
-            dataBaseContext.SaveChanges();
+            dataBaseContext.SaveChanges();*/
             /*BookInventory bki */
             return View();
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> AddAuthor(BookAuthor authorIs, string authorName, int id)
+        public async Task<IActionResult> AddAuthor(BookAuthor authorIs, string authorName)
         {
-            authorIs.Id = id;
+            //authorIs.Id = id;
             authorIs.Author = authorName;
             
             try
             {
                 dataBaseContext.BookAuthors.Add(authorIs);
                 await dataBaseContext.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("BooksInventory");
             }
             catch (Exception)
             {

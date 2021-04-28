@@ -132,7 +132,9 @@ namespace AppDev2ndCW.Controllers
         //to display customer's data in the data table
         public IActionResult ManageCustomers()
         {
-            return View();
+            //var customers = dataBaseContext.Customers.Count();
+            var customerList = dataBaseContext.Customers.ToArray();
+            return View(customerList);
         }
 
         //to delete customer's data from the data table

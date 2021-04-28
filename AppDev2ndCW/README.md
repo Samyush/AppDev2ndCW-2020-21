@@ -55,3 +55,4 @@ Introduction above.
 >--unsetted background image in header.masthead
 and hid overflow to eliminate whitespace in background body!
 >--removed navbar buttons and sign up link in login page
+>--rendered customer data in datatable, added background image to remove whitespace, removed placeholder in login page to eliminated congested space
