@@ -108,26 +108,26 @@ namespace AppDev2ndCW.Controllers
             return Redirect("~/Admin/Home");
         }
 
-        /* [HttpPut]
-         public async Task<IActionResult> EditUsers(Users users, string fullName, string email, string phone, string jobtitle, string password)
-         {
+        
+        public async Task<IActionResult> EditUsers(Users users, string fullName, string email, string phone, string jobtitle, string password)
+        {
+            users.name = fullName;
+            users.email = email;
+            users.contacts = phone;
+            users.role = jobtitle;
+            users.password = password;
 
-             users.name = fullName;
-             users.email = email;
-             users.contacts = phone;
-             users.role = jobtitle;
-             users.password = password;
-             try
-             {
-                 dataBaseContext.Users.Update(users);
-                 await dataBaseContext.SaveChangesAsync();
-                 return RedirectToAction("Home");
-             }
-             catch (Exception)
-             {
-                 return null;
-             }
-         }*/
+            try
+            {
+                dataBaseContext.Users.Update(users);
+                await dataBaseContext.SaveChangesAsync();
+                return Redirect("~/Admin/ManageUsers");
+            }
+            catch {
+                return null;
+            }
+            
+        }
 
         //to display customer's data in the data table
         public IActionResult ManageCustomers()
@@ -142,6 +142,26 @@ namespace AppDev2ndCW.Controllers
             dataBaseContext.Customers.Remove(customer_data);
             dataBaseContext.SaveChanges();
             return Redirect("~/Admin/Home");
+        }
+
+        public async Task<IActionResult> EditCustomers(Customers customers, string customerName, string email, string phone, string customerAddress, string jobtitle, DateTime lastDate)
+        {
+            customers.Customer_Name = customerName;
+            customers.Customer_Email = email;
+            customers.Customer_Contact = phone;
+            customers.Customer_Address = customerAddress;
+            customers.Member_Type = jobtitle;
+            customers.Last_Purchased_Date = lastDate;
+            try
+            {
+                dataBaseContext.Customers.Update(customers);
+                await dataBaseContext.SaveChangesAsync();
+                return RedirectToAction("~/Admin/ManageCustomers");
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
     }
