@@ -64,19 +64,24 @@ namespace AppDev2ndCW.Controllers
             }
         }
 
+        
 
 
         //this section for adding book
         public IActionResult AddBook()
         {
             /*BookInventory bki */
+            ViewBag.categoryList = dataBaseContext.BookCategories.ToArray();
+            ViewBag.authorList = dataBaseContext.BookAuthors.ToArray();
+            
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddBook(BookInventory books, string bookName, int quantity, int rate, int author, int category)
+        public async Task<IActionResult> AddBook(BookInventory books, string bookName, string description,int quantity, int rate, int author, int category)
         {   
             books.Book_name = bookName;
+            books.Description = description;
             books.Stock_Quantity = quantity;
             books.Price = rate;
             books.Author_Id = author;

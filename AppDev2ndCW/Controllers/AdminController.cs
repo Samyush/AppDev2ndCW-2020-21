@@ -17,7 +17,8 @@ namespace AppDev2ndCW.Controllers
         {
             dataBaseContext = db;
         }
-        //this is the controller metheod for admin home
+
+        //this is the controller method for admin home
         //the authorize helps to make sure that only registered users can go into admin dashboard
         /*[Authorize]*/
         [HttpGet]

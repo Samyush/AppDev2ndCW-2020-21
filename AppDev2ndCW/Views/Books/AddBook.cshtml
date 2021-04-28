@@ -1,4 +1,5 @@
 ﻿
+
 @{
     Layout = "_DashboardLayout";
 }
@@ -23,7 +24,7 @@
         </div>
 
         <div class="col-md-10 mx-auto">
-            <form action="" method="post">
+            <form action="/Books/AddBook" method="post">
                 <div class="row">
 
                     <!-- Book Title -->
@@ -33,7 +34,7 @@
                                 <i class="fa fa-book text-muted"></i>
                             </span>
                         </div>
-                        <input id="title" type="text" name="title" placeholder="Book Title" class="form-control bg-white border-left-0 border-md" required>
+                        <input id="title" type="text" name="bookName" placeholder="Book Title" class="form-control bg-white border-left-0 border-md" required>
                     </div>
 
 
@@ -54,12 +55,13 @@
                                 <i class="fa fa-book-open text-muted"></i>
                             </span>
                         </div>
-                        <select id="countryCode" name="countryCode" class="custom-select form-control bg-white border-left-0 border-md h-100 font-weight-bold text-muted" required>
+                        <select id="countryCode" name="category" class="custom-select form-control bg-white border-left-0 border-md h-100 font-weight-bold text-muted" required>
                             <option value="">Choose a Category</option>
-                            <option value="">Poetry</option>
-                            <option value="">Story</option>
-                            <option value="">Novel</option>
-                            <option value="">Biography</option>
+                            @foreach (var category in ViewBag.categoryList)
+                            {
+                              <option value="@category.Id"> @category.Category</option>  
+                           }
+                            
                         </select>
                     </div>
 
@@ -71,12 +73,12 @@
                                 <i class="fa fa-address-book text-muted"></i>
                             </span>
                         </div>
-                        <select id="author" name="bookauthor" class="form-control custom-select bg-white border-left-0 border-md" required>
+                        <select id="author" name="author" class="form-control custom-select bg-white border-left-0 border-md" required>
                             <option value="">Select an author</option>
-                            <option value="">Judah Smith</option>
-                            <option value="">Trevor Noah</option>
-                            <option value="">Julias Malema</option>
-                            <option value="">Michelle Obama</option>
+                            @foreach (var author in ViewBag.authorList)
+                            { 
+                                <option value="@author.Id"> @author.Author</option>
+                            }
                         </select>
                     </div>
 
@@ -87,7 +89,7 @@
                                 <i class="fa fa-money-bill text-muted"></i>
                             </span>
                         </div>
-                        <input id="price" type="number" name="price" placeholder="Price" class="form-control bg-white border-left-0 border-md">
+                        <input id="price" type="number" name="rate" placeholder="Price" class="form-control bg-white border-left-0 border-md">
                     </div>
 
 
