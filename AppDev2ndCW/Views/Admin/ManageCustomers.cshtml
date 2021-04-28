@@ -36,24 +36,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach (var item in Model)
+                                    {
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>tn@tnt.com</td>
-                                        <td>Kathmandu</td>
-                                        <td>9810293849</td>
-                                        <td>Standard</td>
-                                        <td>April 26, 2021</td>
+                                        <td>@item.Customer_Name</td>
+                                        <td>@item.Customer_Email</td>
+                                        <td>@item.Customer_Address</td>
+                                        <td>@item.Customer_Contact</td>
+                                        <td>@item.Member_Type</td>
+                                        <td>@item.Last_Purchased_Date</td>
                                         <td>
                                             <ul class="list-inline m-0">
                                                 <li class="list-inline-item">
                                                     <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
                                                 </li>
                                                 <li class="list-inline-item">
-                                                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                                    <button href="@Url.Action("Delete",new { item.Id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
                                                 </li>
                                             </ul>
                                         </td>
                                     </tr>
+                                    }
                                 </tbody>
                             </table>
                         </div>

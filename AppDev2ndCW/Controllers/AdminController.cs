@@ -132,7 +132,9 @@ namespace AppDev2ndCW.Controllers
 
         public IActionResult ManageCustomers()
         {
-            return View();
+            //var customers = dataBaseContext.Customers.Count();
+            var customerList = dataBaseContext.Customers.ToArray();
+            return View(customerList);
         }
     }
 }
