@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -28,25 +27,17 @@ namespace AppDev2ndCW.Controllers
 
         public IActionResult BooksInventory()
         {
-            //var customers = dataBaseContext.Customers.Count();
-            var bookList = dataBaseContext.BookInventory.ToArray();
-            return View(bookList);
-        }
-
-        public IActionResult DeleteBooksInventory()
-        {
-                
             /*BookInventory bki */
             return View();
         }
+
+       
 
         //this section for adding category
 
         public IActionResult Category()
         {
-            //var customers = dataBaseContext.Customers.Count();
-            var categoryList = dataBaseContext.BookCategories.ToArray();
-            return View(categoryList);
+            return View();
         }
 
         [HttpPost]
@@ -67,19 +58,24 @@ namespace AppDev2ndCW.Controllers
             }
         }
 
+        
 
 
         //this section for adding book
         public IActionResult AddBook()
         {
-          
+            /*BookInventory bki */
+            ViewBag.categoryList = dataBaseContext.BookCategories.ToArray();
+            ViewBag.authorList = dataBaseContext.BookAuthors.ToArray();
+            
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddBook(BookInventory books, string bookName, int quantity, int rate, int author, int category)
+        public async Task<IActionResult> AddBook(BookInventory books, string bookName, string description,int quantity, int rate, int author, int category)
         {   
             books.Book_name = bookName;
+            books.Description = description;
             books.Stock_Quantity = quantity;
             books.Price = rate;
             books.Author_Id = author;
@@ -97,7 +93,13 @@ namespace AppDev2ndCW.Controllers
             }
         }
 
-       
+        public IActionResult DeleteBooksInventory(int id)
+        {
+            var books_data = dataBaseContext.BookInventory.Where(x => x.Id == id).First();
+            dataBaseContext.BookInventory.Remove(books_data);
+            dataBaseContext.SaveChanges();
+            return Redirect("~/Books/BooksInventory");
+        }
 
         //this section for add author
 

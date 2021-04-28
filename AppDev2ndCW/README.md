@@ -3,13 +3,26 @@
 
 Controller method work
 
-1 -> HomeController -> Index()-> login()
+1-> HomeController -> 1.  Index() -> 
+					  2.  Login() -> retuns login view
+					  2.  [HttpPost]Login() -> to authorize a user, logs in if the credentials are correct
+					  3.  Logout() -> logs out the user and deletes the cookie
 
-2-> AdminConroller -> Home()-> View with addition of adding customers, users and edit users
-					  AddUser() -> View with Add user layout
-					  AddCustomer() -> View with Add customer layout
+2-> AdminConroller -> 1.  Home() -> View with addition of adding customers, users and edit users
+					  2.  AddUser() -> View with Add user layout
+					  3.  [HttpPost]AddUsers() -> to insert new user details to the database
+					  4.  ManageUsers() -> to get all the user values from the database and display in the data table
+					  5.  DeleteUsers(int id) -> takes id of the selected user and deletes the data from database
+					  6.  EditUsers() -> need to pass id while calling this method, edits the user's data'
+					  7.  AddCustomer() -> View with Add customer layout
+					  8.  [HttpPost]AddCustomers() -> to insert new customer details to the database
+					  9.  ManageCustomers() -> to get data of customer from database and display in datatable
+					  10. DeleteCustomers(int id) -> deletes the selected customer
+					  11. EditCustomers() -> need to pass id, edits the customer data
 
-
+3-> UserServices ->   1.  GetUserById(int id) -> Gets the current user's id
+					  2.  TryValidateUser() -> checks if the credentials entered while logging in is registered in the database or not.
+											   also generates a list of claims which consists of the logged in user's information
 
 
 Date: 27th April 2021
