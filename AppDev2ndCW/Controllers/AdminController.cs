@@ -92,20 +92,43 @@ namespace AppDev2ndCW.Controllers
             }
         }
 
-       /*public IActionResult GetUserID()
+       
+        
+        public IActionResult DeleteUsers(int id)
         {
-            
-            return View();
-        }*/
-        public IActionResult DeleteUsers()
-        {
+            var user_data = dataBaseContext.Users.Where(x => x.id == id).First();
+            dataBaseContext.Users.Remove(user_data);
+            dataBaseContext.SaveChanges();
             return Home();
         }
-
+        
         public IActionResult ManageUsers()
         {
-            return View();
+            //var users = dataBaseContext.Users.Count();
+            var userList = dataBaseContext.Users.ToArray();
+            return View(userList);
         }
+
+       /* [HttpPut]
+        public async Task<IActionResult> EditUsers(Users users, string fullName, string email, string phone, string jobtitle, string password)
+        {
+
+            users.name = fullName;
+            users.email = email;
+            users.contacts = phone;
+            users.role = jobtitle;
+            users.password = password;
+            try
+            {
+                dataBaseContext.Users.Update(users);
+                await dataBaseContext.SaveChangesAsync();
+                return RedirectToAction("Home");
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }*/
 
         public IActionResult ManageCustomers()
         {
