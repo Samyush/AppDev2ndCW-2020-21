@@ -1,22 +1,15 @@
 ﻿
-@{
-    Layout = "_DashboardLayout";
-}
-
+@{ Layout = "_DashboardLayout"; }
 
 
 <div class="container-fluid px-xl-5">
     <section class="py-5">
 
         <div class="row py-5 mt-4 align-items-center">
-            <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
-                <img src="~/img/add_user.svg" alt="Add User SVG" class="img-fluid" />
-                <h1>Add New User</h1>
-            </div>
 
-            <!-- Add User Form -->
+            <!-- Update Customer Form -->
             <div class="col-md-7 col-lg-6 ml-auto">
-                <form action="/Admin/AddUsers" method="post">
+                <form action="" method="post">
                     <div class="row">
 
                         <!-- Name -->
@@ -26,7 +19,7 @@
                                     <i class="fa fa-user text-muted"></i>
                                 </span>
                             </div>
-                            <input id="fullName" type="text" name="fullName" placeholder="Full Name" class="form-control bg-white border-left-0 border-md" required>
+                            <input id="customerName" type="text" name="customerName" placeholder="Customer Name" class="form-control bg-white border-left-0 border-md" required>
                         </div>
 
                         <!-- Email Address -->
@@ -52,6 +45,16 @@
                             <input id="phoneNumber" type="number" name="phone" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3" required>
                         </div>.
 
+                        <!-- Customer Address -->
+                        <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-map-marker-alt text-muted"></i>
+                                </span>
+                            </div>
+                            <input id="customerAddress" type="text" name="customerAddress" placeholder="Customer Address" class="form-control bg-white border-left-0 border-md" required>
+                        </div>
+
 
                         <!-- Account Type -->
                         <div class="input-group col-lg-12 mb-4">
@@ -60,44 +63,42 @@
                                     <i class="fa fa-user-tie text-muted"></i>
                                 </span>
                             </div>
-                            <select id="job" name="jobtitle"  class="form-control custom-select bg-white border-left-0 border-md">
-                                <option value="">Choose the account type</option>
-                                <option value="Admin">Admin</option>
-                                <option value="Normal">Normal</option>
+                            <select id="job" name="jobtitle" class="form-control custom-select bg-white border-left-0 border-md">
+                                <option value="">Choose the membership type</option>
+                                <option value="Standard">Standard</option>
+                                <option value="Premium">Premium</option>
                             </select>
                         </div>
 
-                        <!-- Password -->
-                        <div class="input-group col-lg-6 mb-4">
+                        <!-- Last Purchased Date -->
+                        <div class="col-md-12 mb-0">
+                            <label for="lastPurchasedDate">Last Purchased Date <i class="fas fa-ellipsis-h ml-2"></i></label>
+                        </div>
+                        <div class="input-group col-lg-12 mb-4">
                             <div class="input-group-prepend">
                                 <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                    <i class="fa fa-lock text-muted"></i>
+                                    <i class="fa fa-calendar text-muted"></i>
                                 </span>
                             </div>
-                            <input id="password" type="password" name="password" placeholder="Password" class="form-control bg-white border-left-0 border-md" required>
+                            <input type="date" name="lastDate" placeholder="" class="form-control py-4 px-4" id="lastPurchasedDate">
                         </div>
 
-                        <!-- Password Confirmation -->
-                        <div class="input-group col-lg-6 mb-4">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                    <i class="fa fa-lock text-muted"></i>
-                                </span>
-                            </div>
-                            <input id="passwordConfirmation" type="password" name="passwordConfirmation" placeholder="Confirm Password" class="form-control bg-white border-left-0 border-md" required>
-                        </div>
 
                         <!-- Submit Button -->
                         <div class="form-group col-lg-12 mx-auto mb-0">
-                            <button class="btn btn-primary btn-block py-2" >
-                                <span class="font-weight-bold">Add User <i class="fas fa-user-plus ml-2"></i></span>
+                            <button class="btn btn-primary btn-block py-2">
+                                <span class="font-weight-bold">Update Customer <i class="fas fa-user-edit ml-2"></i></span>
                             </button>
                         </div>
 
                     </div>
                 </form>
             </div>
+
+            <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+                <img src="~/img/update.svg" alt="Update SVG" class="img-fluid" />
+                <h3>Update Customer Details</h3>
+            </div>
         </div>
     </section>
 </div>
-

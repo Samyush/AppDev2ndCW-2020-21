@@ -150,6 +150,11 @@ namespace AppDev2ndCW.Controllers
             }
         }
 
+        public IActionResult UpdateBooks()
+        {
+            return View();
+        }
+
         //this section for add author
 
         public IActionResult AddAuthor(BookAuthor authorIs)
@@ -159,6 +164,11 @@ namespace AppDev2ndCW.Controllers
             dataBaseContext.BookAuthors.Add(authorIs);
             dataBaseContext.SaveChanges();*/
             /*BookInventory bki */
+            return View();
+        }
+
+        public IActionResult Authors()
+        {
             return View();
         }
 

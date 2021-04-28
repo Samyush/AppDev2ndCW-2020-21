@@ -109,31 +109,39 @@
             <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN</div>
             <ul class="sidebar-menu list-unstyled">
                 <li class="sidebar-list-item"><a href="@Url.ActionLink("Dashboard", "Users")" class="sidebar-link text-muted"><i class="o-network-1 mr-3 text-gray"></i><span>Dashboard</span></a></li>
+                @{
+                    var claimsPrinciple = User.Claims;
+                    var c = claimsPrinciple.Where(a => a.Type == "role").FirstOrDefault();
+                    @if (@c.Value.Equals("Admin"))
+                    {
                 <li class="sidebar-list-item"><a href="@Url.ActionLink("Home", "Admin")" class="sidebar-link text-muted"><i class="o-user-1 mr-3 text-gray"></i><span>Admin</span></a></li>
+                    }
+                }
                 <li class="sidebar-list-item">
                     <a href="#" data-toggle="collapse" data-target="#page" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-profile-1 mr-3 text-gray"></i><span>Customer</span></a>
                     <div id="page" class="collapse">
                         <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
-                            <li class="sidebar-list-item"><a href="customer" class="sidebar-link text-muted pl-lg-5">Customer Details</a></li>
+                            <li class="sidebar-list-item"><a href="@Url.ActionLink("Home", "Customer")" class="sidebar-link text-muted pl-lg-5">Customer</a></li>
                             <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Invoice</a></li>
                         </ul>
                     </div>
                 </li>
                 @*<li class="sidebar-list-item">
-                        <a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Book</span></a>
-                        <div id="pages" class="collapse">
-                            <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
-                                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Category</a></li>
-                                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Books</a></li>
-                                <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Stock</li>
-                            </ul>
-                        </div>
-                    </li>*@
+            <a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Book</span></a>
+            <div id="pages" class="collapse">
+                <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                    <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Category</a></li>
+                    <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Books</a></li>
+                    <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted pl-lg-5">Stock</li>
+                </ul>
+            </div>
+        </li>*@
                 <li class="sidebar-list-item">
                     <a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-news-article-1 mr-3 text-gray"></i><span>Books</span></a>
                     <div id="pages" class="collapse">
                         <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
                             <li class="sidebar-list-item"><a href="@Url.ActionLink("Category", "Books")" class="sidebar-link text-muted pl-lg-5">Category</a></li>
+                            <li class="sidebar-list-item"><a href="@Url.ActionLink("Authors", "Books")" class="sidebar-link text-muted pl-lg-5">Authors</a></li>
                             <li class="sidebar-list-item"><a href="@Url.ActionLink("AddBook", "Books")" class="sidebar-link text-muted pl-lg-5">Add Books</a></li>
                             <li class="sidebar-list-item"><a href="@Url.ActionLink("BooksInventory", "Books")" class="sidebar-link text-muted pl-lg-5">Stock</a></li>
                             <li class="sidebar-list-item"><a href="@Url.ActionLink("List", "Sales")" class="sidebar-link text-muted pl-lg-5">Sales</a></li>

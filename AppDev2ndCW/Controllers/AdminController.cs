@@ -135,6 +135,11 @@ namespace AppDev2ndCW.Controllers
             
         }
 
+        public IActionResult UpdateUsers()
+        {
+            return View();
+        }
+
         //to display customer's data in the data table
         public IActionResult ManageCustomers()
         {
@@ -170,6 +175,11 @@ namespace AppDev2ndCW.Controllers
             {
                 return null;
             }
+        }
+
+        public IActionResult UpdateCustomers()
+        {
+            return View();
         }
 
     }

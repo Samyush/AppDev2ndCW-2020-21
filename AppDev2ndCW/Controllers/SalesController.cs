@@ -22,5 +22,14 @@ namespace AppDev2ndCW.Controllers
         {
             return View();
         }
+        public IActionResult AddSaleItem()
+        {
+            return View();
+        }
+
+        public IActionResult GenerateBill()
+        {
+            return View();
+        }
     }
 }

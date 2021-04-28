@@ -6,27 +6,24 @@ using System.Threading.Tasks;
 
 namespace AppDev2ndCW.Controllers
 {
-    [Route("customer")]
+
     public class CustomerController : Controller
     {
-
+        /*
         [Route("")]
         public IActionResult Index()
         {
             return new ContentResult { Content = "Try"};
-        }
+        }*/
 
-        public IActionResult AddCustomer()
-        {   
-            return View();
-        }
-        public IActionResult DeleteCustomer()
-        {
-            return View();
-        }
         public IActionResult PurchaseHistory()
         {
             return View();  
+        }
+
+        public IActionResult Home()
+        {
+            return View();
         }
 
         /*[Route("login/{email:string}/{password:string}")]*/

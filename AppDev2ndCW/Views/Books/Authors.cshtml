@@ -1,0 +1,76 @@
+﻿@{ Layout = "_DashboardLayout"; }
+
+<div class="container">
+    <header class="text-center">
+        <h1 class="display-4 font-weight-bold">Add New Book Author</h1>
+    </header>
+</div>
+
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="text-center">
+                <div class="row mb-4">
+                    <div class="col-md-6 mx-auto">
+                        <img src="/img/author.svg" alt="Author SVG" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+
+            <form action="" method="post">
+                <!-- Author Input -->
+                <div class="form-group mb-4">
+                    <div class="input-group p-0 shadow-sm">
+                        <input type="text" name="authorName" placeholder="Please enter the author name" class="form-control py-4 px-4" id="authorName" required>
+                        <div class="input-group-append"><span class="input-group-text px-4"><i class="fa fa-user"></i></span></div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-primary">Add Author <i class="fas fa-check ml-2"></i></button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <hr class="my-5" />
+
+    <div my-4>
+        <header class="mb-4">
+            <p class="h3 text-center">Existing Authors <i class="fas fa-chevron-down ml-2"></i></p>
+        </header>
+        <div class="row my-4">
+            <div class="col-lg-7 mx-auto">
+                <div class="card border-0 shadow">
+                    <div class="card-body p-5">
+
+                        <!-- Responsive table -->
+                        <div class="table-responsive">
+                            <table class="table m-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">SN</th>
+                                        <th scope="col">Author Name</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Judah Smith</td>
+                                        <th>
+                                            <a href="" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

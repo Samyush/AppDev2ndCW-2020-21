@@ -1,7 +1,5 @@
 ﻿
-@{
-    Layout = "_DashboardLayout";
-}
+@{ Layout = "_DashboardLayout"; }
 
 
 
@@ -9,14 +7,10 @@
     <section class="py-5">
 
         <div class="row py-5 mt-4 align-items-center">
-            <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
-                <img src="~/img/add_user.svg" alt="Add User SVG" class="img-fluid" />
-                <h1>Add New User</h1>
-            </div>
 
-            <!-- Add User Form -->
+            <!-- Update User Form -->
             <div class="col-md-7 col-lg-6 ml-auto">
-                <form action="/Admin/AddUsers" method="post">
+                <form action="" method="post">
                     <div class="row">
 
                         <!-- Name -->
@@ -60,42 +54,27 @@
                                     <i class="fa fa-user-tie text-muted"></i>
                                 </span>
                             </div>
-                            <select id="job" name="jobtitle"  class="form-control custom-select bg-white border-left-0 border-md">
+                            <select id="job" name="jobtitle" class="form-control custom-select bg-white border-left-0 border-md">
                                 <option value="">Choose the account type</option>
                                 <option value="Admin">Admin</option>
                                 <option value="Normal">Normal</option>
                             </select>
                         </div>
 
-                        <!-- Password -->
-                        <div class="input-group col-lg-6 mb-4">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                    <i class="fa fa-lock text-muted"></i>
-                                </span>
-                            </div>
-                            <input id="password" type="password" name="password" placeholder="Password" class="form-control bg-white border-left-0 border-md" required>
-                        </div>
-
-                        <!-- Password Confirmation -->
-                        <div class="input-group col-lg-6 mb-4">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                    <i class="fa fa-lock text-muted"></i>
-                                </span>
-                            </div>
-                            <input id="passwordConfirmation" type="password" name="passwordConfirmation" placeholder="Confirm Password" class="form-control bg-white border-left-0 border-md" required>
-                        </div>
-
                         <!-- Submit Button -->
                         <div class="form-group col-lg-12 mx-auto mb-0">
-                            <button class="btn btn-primary btn-block py-2" >
-                                <span class="font-weight-bold">Add User <i class="fas fa-user-plus ml-2"></i></span>
+                            <button class="btn btn-primary btn-block py-2">
+                                <span class="font-weight-bold">Update User <i class="fas fa-user-edit ml-2"></i></span>
                             </button>
                         </div>
 
                     </div>
                 </form>
+            </div>
+
+            <div class="col-md-5 p-5 mb-5 mb-md-0">
+                <img src="~/img/update.svg" alt="Update SVG" class="img-fluid" />
+                <h3>Update User Details <i class="fas fa-pencil-alt"></i></h3>
             </div>
         </div>
     </section>

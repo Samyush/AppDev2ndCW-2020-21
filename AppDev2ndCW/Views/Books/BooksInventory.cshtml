@@ -2,6 +2,22 @@
 @{
     Layout = "_DashboardLayout";
 }
+
+@section manualCSS{
+<style>
+    .bootstrap-select .bs-ok-default::after {
+        width: 0.3em;
+        height: 0.6em;
+        border-width: 0 0.1em 0.1em 0;
+        transform: rotate(45deg) translateY(0.5rem);
+    }
+
+    .btn.dropdown-toggle:focus {
+        outline: none !important;
+    }
+</style>
+ }
+
 @if (ViewBag.issuccess)
 {
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -35,6 +51,48 @@ else if (ViewBag.isdelete)
     </div>
 
     <div my-4>
+        @*Handle Requirements 5 and 6 (View book stock and details)*@
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="bg-white p-5 rounded shadow">
+                    <form action="" method="post">
+                        <!-- Book Input -->
+                        <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-book text-muted"></i>
+                                </span>
+                            </div>
+                            <select id="customer" name="customer" class="form-control custom-select bg-white border-left-0 border-md">
+                                <option value="">Please choose a book to view its details</option>
+                                <option value="">The Alchemist</option>
+                                <option value="">How's your Soul?</option>
+                                <option value="">Golaith Must Fall</option>
+                            </select>
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-primary">View Details <i class="fas fa-check ml-2"></i></button>
+                        </div>
+                    </form>
+
+                    <p class="text-center my-3 font-weight-bold">OR</p>
+
+                    <h5 class="font-weight-light mb-4 font-italic text-center">Search for a book</h5>
+                    <form action="">
+                        <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+                            <div class="input-group">
+                                <input type="search" placeholder="Enter book title here" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                                <div class="input-group-append">
+                                    <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <div class="row my-4">
             <div class="col-lg-11 mx-auto">
                 <div class="card border-0 shadow">
@@ -59,23 +117,23 @@ else if (ViewBag.isdelete)
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
-                                            <td>@item.Book_name</td>
-                                            <td>@item.Author_Id</td>
-                                            <td>@item.Description</td>
-                                            <td>@item.Category_Id</td>
-                                            <td>@item.Price</td>
-                                            <td>@item.Stocked_Date</td>
-                                            <td>@item.Stock_Quantity</td>
-                                            <td>@item.Sales_Date</td>
-                                            <th>
-                                                <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
-                                            </th>
-                                            <th>
-                                                <a href="@Url.Action("DeleteBooksInventory","Books",new { item.Id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
-                                            </th>
-                                        </tr>
-                                    }
+                        <tr>
+                            <td>@item.Book_name</td>
+                            <td>@item.Author_Id</td>
+                            <td>@item.Description</td>
+                            <td>@item.Category_Id</td>
+                            <td>@item.Price</td>
+                            <td>@item.Stocked_Date</td>
+                            <td>@item.Stock_Quantity</td>
+                            <td>@item.Sales_Date</td>
+                            <th>
+                                <a href="@Url.ActionLink("UpdateBooks", "Books")" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                            </th>
+                            <th>
+                                <a href="@Url.Action("DeleteBooksInventory","Books",new { item.Id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                            </th>
+                        </tr>
+}
 
                                 </tbody>
                             </table>

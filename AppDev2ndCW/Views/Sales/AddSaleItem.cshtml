@@ -1,0 +1,68 @@
+﻿
+@{ Layout = "_DashboardLayout"; }
+
+
+<div class="container-fluid px-xl-5">
+    <section class="py-5">
+
+        <div class="row py-5 mt-4 align-items-center">
+            <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+                <img src="~/img/insert_sale.svg" alt="Insert Sale Item SVG" class="img-fluid" />
+                <h1>Add New Sale Item</h1>
+            </div>
+
+            <!-- Registeration Form -->
+            <div class="col-md-7 col-lg-6 ml-auto">
+                <form action="" method="post">
+                    <div class="row">
+
+                        <!-- Book -->
+                        <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-book text-muted"></i>
+                                </span>
+                            </div>
+                            <select id="book" name="booktitle" class="form-control custom-select bg-white border-left-0 border-md">
+                                <option value="">Choose the purchased book</option>
+                                <option value="">The Alchemist</option>
+                                <option value="">How's your Soul?</option>
+                                <option value="">Goliath Must Fall</option>
+                                <option value="">In My Dreams</option>
+                            </select>
+                        </div>
+
+                        <!-- Quantity -->
+                        <div class="input-group col-lg-6 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-list-ol text-muted"></i>
+                                </span>
+                            </div>
+                            <input id="quantity" type="text" name="number" placeholder="Purchased Quantity" class="form-control bg-white border-left-0 border-md" required>
+                        </div>
+
+                        <!-- Total -->
+                        @*<div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-calculator text-muted"></i>
+                                </span>
+                            </div>
+                            <input id="amount" type="text" name="totalamount" placeholder="Purchased Total Amount" class="form-control bg-white border-left-0 border-md" required>
+                        </div>*@
+
+
+                        <!-- Submit Button -->
+                        <div class="form-group col-lg-12 mx-auto mb-0">
+                            <button class="btn btn-primary btn-block py-2">
+                                <span class="font-weight-bold">Insert Sale Item <i class="fas fa-cart-plus ml-2"></i></span>
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,96 @@
+﻿
+@{ Layout = "_DashboardLayout"; }
+
+
+
+<div class="container-fluid px-xl-5">
+    <section class="py-5">
+
+        <div class="row py-5 mt-4 align-items-center">
+
+            <!-- Update User Form -->
+            <div class="col-md-7 col-lg-6 ml-auto">
+                <form action="" method="post">
+                    <div class="row">
+
+                        <!-- Book Title -->
+                        <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-book text-muted"></i>
+                                </span>
+                            </div>
+                            <input id="title" type="text" name="bookName" placeholder="Book Title" class="form-control bg-white border-left-0 border-md" required>
+                        </div>
+
+
+                        <!-- Book Description -->
+                        <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-envelope text-muted"></i>
+                                </span>
+                            </div>
+                            <textarea id="description" name="description" placeholder="Book Description" class="form-control bg-white border-left-0 border-md" rows="8"></textarea>
+                        </div>
+
+                        <!-- Book Category -->
+                        <div class="input-group col-lg-6 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-book-open text-muted"></i>
+                                </span>
+                            </div>
+                            <select id="countryCode" name="category" class="custom-select form-control bg-white border-left-0 border-md h-100 font-weight-bold text-muted" required>
+                                <option value="">Choose a Category</option>
+                                <option value="">Novels</option>
+                                <option value="">Stories</option>
+                                <option value="">Poetry</option>
+                            </select>
+                        </div>
+
+
+                        <!-- Book Author  -->
+                        <div class="input-group col-lg-6 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-address-book text-muted"></i>
+                                </span>
+                            </div>
+                            <select id="author" name="author" class="form-control custom-select bg-white border-left-0 border-md" required>
+                                <option value="">Select an author</option>
+                                <option value="">Judah Smith</option>
+                                <option value="">Emma Jones</option>
+                                <option value="">Vladimir Savchuk</option>
+                            </select>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="input-group col-lg-6 mb-4" required>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-money-bill text-muted"></i>
+                                </span>
+                            </div>
+                            <input id="price" type="number" name="rate" placeholder="Price" class="form-control bg-white border-left-0 border-md">
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-group col-lg-12 mx-auto mb-0">
+                            <button class="btn btn-primary btn-block py-2">
+                                <span class="font-weight-bold">Update Book <i class="fas fa-pencil-alt ml-2"></i></span>
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-5 p-5 mb-5 mb-md-0">
+                <img src="~/img/update.svg" alt="Update SVG" class="img-fluid" />
+                <h3>Update Book Details <i class="fas fa-pencil-alt"></i></h3>
+            </div>
+        </div>
+    </section>
+</div>
+

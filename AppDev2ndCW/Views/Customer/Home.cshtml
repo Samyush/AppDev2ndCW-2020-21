@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = "_DashboardLayout";
+}
+
+<div class="container-fluid">
+    <section class="py-5">
+        <div class="row">
+            <div class="col-md-8 mx-auto p-3">
+                <div class="row">
+
+                    <div class="col-lg-6 mb-4 mb-xl-0 p-4">
+                        <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
+                            <div class="flex-grow-1 d-flex align-items-center">
+                                <div class="text">
+                                    <a href="@Url.ActionLink("AddCustomers", "Admin")">
+                                        <img src="~/img/add_customer.svg" alt="Add Customer SVG" class="img-fluid" />
+                                        <h6 class="mb-0">Add Customers</h6>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="icon text-white bg-green p-4"><i class="fas fa-user-plus"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mb-4 mb-xl-0 p-4">
+                        <div class="bg-white shadow roundy p-4 h-100 d-flex align-items-center justify-content-between">
+                            <div class="flex-grow-1 d-flex align-items-center">
+                                <div class="text">
+                                    <a href="@Url.ActionLink("ManageCustomers", "Admin")">
+                                        <img src="~/img/customers.svg" alt="Manage Customer SVG" class="img-fluid" />
+                                        <h6 class="mb-0">Manage Customers</h6>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="icon text-white bg-green p-4"><i class="fas fa-bars"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
