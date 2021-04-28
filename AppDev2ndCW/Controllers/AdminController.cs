@@ -92,6 +92,11 @@ namespace AppDev2ndCW.Controllers
             }
         }
 
+       /*public IActionResult GetUserID()
+        {
+            
+            return View();
+        }*/
         public IActionResult DeleteUsers()
         {
             return Home();
