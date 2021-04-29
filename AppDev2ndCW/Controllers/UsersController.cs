@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AppDev2ndCW.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,12 @@ namespace AppDev2ndCW.Controllers
 {
     public class UsersController : Controller
     {
+        private readonly DataBaseContext dataBaseContext;
+        public UsersController(DataBaseContext db)
+        {
+            dataBaseContext = db;
+        }
+
         public IActionResult Dashboard(bool IsLogin = false)
         {
             ViewBag.isLogin = IsLogin;
@@ -34,6 +41,9 @@ namespace AppDev2ndCW.Controllers
         
         public IActionResult InactiveItems()
         {
+            DateTime currentDate = DateTime.Now.Date;
+            DateTime lastDate = currentDate.Subtract(new TimeSpan(31,0,0,0,0));
+            var inactive = dataBaseContext.BookInventory.Where(x => x.Stocked_Date <=lastDate ).ToArray();
             return View();
         }
 
