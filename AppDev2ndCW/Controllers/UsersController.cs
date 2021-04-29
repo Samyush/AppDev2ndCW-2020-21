@@ -30,7 +30,7 @@ namespace AppDev2ndCW.Controllers
         {
             return View();
         }
-
+        
         public IActionResult InactiveItems()
         {
             return View();

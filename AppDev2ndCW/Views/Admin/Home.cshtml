@@ -59,14 +59,14 @@ else if (ViewBag.islogin)
     </div>
 }
 
-@{
+@*@{
     var claimsPrinciple = User.Claims;
     var c = claimsPrinciple.Where(a => a.Type == "role").FirstOrDefault();
     @if (@c.Value.Equals("Admin"))
     {
         <h1>@c.Value</h1>
     }
-}
+}*@
 
 <div class="container-fluid">
     <section class="py-5">
