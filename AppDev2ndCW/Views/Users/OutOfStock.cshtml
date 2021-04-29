@@ -53,12 +53,13 @@
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Title</th>
-                                        <th scope="col">Author</th>
-                                        <th scope="col">Category</th>
+                                        <th scope="col">Stock Quantity</th>
+                                        @*<th scope="col">Author</th>
+                                         <th scope="col">Category</th>*@
                                         <th scope="col">Price</th>
                                         <th scope="col">Stocked Date</th>
-                                        <th scope="col">Stock Quantity</th>
                                         <th scope="col">Sales Date</th>
+                                        <th scope="col">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -67,15 +68,15 @@
                                     <tr>
                                         <td>@item.Id</td>
                                         <td>@item.Book_name</td>
-                                        <td>@item.Author_Id</td>
-                                        <td>@item.Category_Id</td>
+                                        <td>@item.Stock_Quantity</td>
+                                        @*<td>@item.Author_Id</td>
+                                        <td>@item.Category_Id</td>*@
                                         <td>@item.Price</td>
                                         <td>@item.Stocked_Date</td>
-                                        <td>@item.Stock_Quantity</td>
                                         <td>@item.Sales_Date</td>
-                                        <th>
-                                            <a href="@Url.ActionLink("UpdateBooks", "Books")" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                                        </th>
+                                        @*<th>
+                                         <a href="@Url.ActionLink("UpdateBooks", "Books")" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                         </th>*@
                                         <th>
                                             <a href="@Url.Action("DeleteBooksInventory","Books",new { item.Id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
                                         </th>

@@ -30,8 +30,15 @@ namespace AppDev2ndCW.Controllers
             ViewBag.issuccess = Issuccess;
             ViewBag.isdelete = Isdelete;
             /*BookInventory bki */
+            ViewBag.bookList = dataBaseContext.BookInventory.ToArray();
+
             var bookList = dataBaseContext.BookInventory.ToArray();
             return View(bookList);
+        }
+
+        public IActionResult BookInventorySearch(int id)
+        {
+            return View();
         }
        
 

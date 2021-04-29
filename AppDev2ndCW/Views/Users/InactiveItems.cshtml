@@ -35,6 +35,7 @@
                                         <th scope="col">Stocked Date</th>
                                         <th scope="col">Stock Quantity</th>
                                         <th scope="col">Sales Date</th>
+                                        @*<th scope="col">Delete</th>*@
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -49,12 +50,12 @@
                                             <td>@item.Stocked_Date</td>
                                             <td>@item.Stock_Quantity</td>
                                             <td>@item.Sales_Date</td>
-                                            <th>
+                                            @*<th>
                                                 <a href="@Url.ActionLink("UpdateBooks", "Books")" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                                            </th>
-                                            <th>
+                                            </th>*@
+                                           @* <th>
                                                 <a href="@Url.Action("DeleteBooksInventory","Books",new { item.Id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
-                                            </th>
+                                            </th>*@
                                         </tr>
                                     }
                                 </tbody>
