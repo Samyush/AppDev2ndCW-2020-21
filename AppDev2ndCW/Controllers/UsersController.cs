@@ -38,7 +38,37 @@ namespace AppDev2ndCW.Controllers
         {
             return View();
         }
-        
+
+        public async Task<IActionResult> EditPassword(Users users, string oldPassword, string newPassword)
+        {
+            var claimsPrinciple = User.Claims;
+            var c = claimsPrinciple.Where(a=>a.Type=="id").FirstOrDefault().Value;
+
+            users.name = claimsPrinciple.Where(a=>a.Type=="name").FirstOrDefault().Value;
+            users.email = claimsPrinciple.Where(a => a.Type == "email").FirstOrDefault().Value;
+            users.contacts = claimsPrinciple.Where(a => a.Type == "contact").FirstOrDefault().Value;
+            users.role = claimsPrinciple.Where(a => a.Type == "role").FirstOrDefault().Value;
+            var oldpassword = claimsPrinciple.Where(a => a.Type == "password").FirstOrDefault().Value;
+            users.password = newPassword;
+            if (oldpassword == oldPassword)
+            {
+                try
+                {
+                    dataBaseContext.Users.Update(users);
+                    await dataBaseContext.SaveChangesAsync();
+                    return Redirect("~/Admin/ManageUsers");
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            else 
+            {
+                return Redirect("~/Admin/ManageCustomers");
+            }
+            
+        }
         public IActionResult InactiveItems()
         {
             DateTime currentDate = DateTime.Now.Date;

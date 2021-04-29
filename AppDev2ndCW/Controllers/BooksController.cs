@@ -131,6 +131,7 @@ namespace AppDev2ndCW.Controllers
 
         public async Task<IActionResult> EditBooks(BookInventory books, string bookName, string description, int quantity, int rate, int author, int category, DateTime stocked_date)
         {
+            
             books.Book_name = bookName;
             books.Description = description;
             books.Stock_Quantity = quantity;
