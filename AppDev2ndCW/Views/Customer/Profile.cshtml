@@ -1,0 +1,125 @@
+﻿@{
+    Layout = "_DashboardLayout";
+}
+
+<div class="container p-5">
+    <div class="panel-body inf-content">
+        <div class="row">
+            <div class="col-md-4">
+                <img alt="Customer SVG" style="width:600px;" title="" class="img-circle img-fluid" src="~/img/customer.svg">
+            </div>
+            <div class="col-md-6">
+                <strong>Customer Information</strong><br>
+                <div class="table-responsive">
+                    <table class="table table-user-information">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                        Customer ID
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    123
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-user  text-primary"></span>
+                                        Full Name
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    Sam John
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-eye-open text-primary"></span>
+                                        Member Type
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    Standard
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-envelope text-primary"></span>
+                                        Email
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    admin@admin.com
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-calendar text-primary"></span>
+                                        Last Purchased Date
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    20 April, 2021
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row my-4">
+            <div class="col-md-10 my-3 text-center ">
+                <p class="font-weight-bold h3">Customer Order History</p>
+                <p><code>This customer had following orders in the last 31 days. <i class="fas fa-arrow-down"></i></code></p>
+            </div>
+            <div class="col-lg-10 mx-auto">
+                <div class="card border-0 shadow">
+                    <div class="card-body p-5">
+                        <div class="table-responsive">
+                            <table style="width:100%" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Sale ID</th>
+                                        <th scope="col">Sale Date</th>
+                                        <th scope="col">Sale Total</th>
+                                        <th scope="col">Customer</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <th>Sale 101</th>
+                                        <td>26 April, 2021</td>
+                                        <td>Rs 1500</td>
+                                        <td>9813029480</td>
+                                        <td>
+                                            <ul class="list-inline m-0">
+                                                <li class="list-inline-item">
+                                                    <a href="@Url.ActionLink("SaleItems", "Sales")" class="btn btn-warning btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="View Sale Items"><i class="fa fa-table"></i></a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>                                        

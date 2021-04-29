@@ -17,6 +17,30 @@
     </div>
 
     <div my-4>
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <form action="" method="post">
+                    <!--Apply Sort Filters -->
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-filter text-muted"></i>
+                            </span>
+                        </div>
+                        <select id="customer" name="customer" class="form-control custom-select bg-white border-left-0 border-md">
+                            <option value="">Please choose a sorting filter</option>
+                            <option value="">Item Name (Ascending)</option>
+                            <option value="">Stock Quantity (High to Low)</option>
+                            <option value="">Stocked Date (Descending)</option>
+                        </select>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="btn btn-primary">Sort Table Data <i class="fas fa-sort ml-2"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
         <div class="row my-4">
             <div class="col-lg-11 mx-auto">
                 <div class="card border-0 shadow">
