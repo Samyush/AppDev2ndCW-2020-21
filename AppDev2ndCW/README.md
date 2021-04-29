@@ -2,6 +2,11 @@
 Getting Started
 ## @Author team development
 
+
+Date: 29th April 2021 samyush -> 
+					1. Admin and Normal user adding dispute solved
+					2. Word File added for task completion tracking
+
 Controller method work
 
 1-> HomeController ->  1.  Index() -> 
