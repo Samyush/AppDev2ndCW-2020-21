@@ -66,13 +66,16 @@ namespace AppDev2ndCW.Controllers
             }
             else 
             {
-                return Redirect("~/Admin/ManageCustomers");
+                return Redirect("~/Admin/ManageUsers");
             }
             
         }
         public IActionResult InactiveItems()
         {
-            return View();
+            DateTime currentDate = DateTime.Now.Date;
+            DateTime lastDate = currentDate.Subtract(new TimeSpan(31, 0, 0, 0, 0));
+            var inactiveItemList = dataBaseContext.BookInventory.Where(x => x.Sales_Date <= lastDate).ToArray();
+            return View(inactiveItemList);
         }
 
         public IActionResult InactiveCustomers()
