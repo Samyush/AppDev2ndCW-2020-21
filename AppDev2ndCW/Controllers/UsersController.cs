@@ -69,7 +69,8 @@ namespace AppDev2ndCW.Controllers
         {
             DateTime currentDate = DateTime.Now.Date;
             DateTime lastDate = currentDate.Subtract(new TimeSpan(31, 0, 0, 0, 0));
-            var inactiveItemList = dataBaseContext.BookInventory.Where(x => x.Stocked_Date <= lastDate).ToArray();
+            var inactiveItemList = dataBaseContext.BookInventory.Where(x => x.Sales_Date <= lastDate).ToArray();
+            //var inactiveItemList = dataBaseContext.BookInventory.Where(x => x.Stocked_Date <= lastDate).ToArray();
             return View(inactiveItemList);
         }
     }
