@@ -8,8 +8,9 @@ namespace AppDev2ndCW.Controllers
 {
     public class UsersController : Controller
     {
-        public IActionResult Dashboard()
+        public IActionResult Dashboard(bool IsLogin = false)
         {
+            ViewBag.isLogin = IsLogin;
             return View();
         }
 

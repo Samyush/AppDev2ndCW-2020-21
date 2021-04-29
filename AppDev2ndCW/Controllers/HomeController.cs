@@ -73,8 +73,10 @@ namespace AppDev2ndCW.Controllers
                 {
                     return Redirect(ReturnUrl);
                 }
-                else { return Redirect("~/Admin/Home"); }
-                
+                else
+                {
+                    return RedirectToAction("Dashboard", "Users", new { IsLogin = true});
+                }
             }
             else
             {
