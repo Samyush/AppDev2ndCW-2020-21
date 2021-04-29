@@ -34,8 +34,11 @@ namespace AppDev2ndCW.Services
             }
             else
             {
+                claims.Add(new Claim("id", appUser.id.ToString()));
+                claims.Add(new Claim("name", appUser.name));
                 claims.Add(new Claim("email", email));
                 claims.Add(new Claim("role", appUser.role));
+                claims.Add(new Claim("password", appUser.password));
             }
             return true;
         }

@@ -167,9 +167,12 @@ namespace AppDev2ndCW.Controllers
             return View();
         }
 
-        public IActionResult Authors()
+        public IActionResult Authors(bool Issuccess = false, bool Isdeleteaut = false)
         {
-            return View();
+            ViewBag.issuccess = Issuccess;
+            ViewBag.isdeleteaut = Isdeleteaut;
+            var authorList = dataBaseContext.BookAuthors.ToArray();
+            return View(authorList);
         }
 
 
@@ -183,7 +186,7 @@ namespace AppDev2ndCW.Controllers
             {
                 dataBaseContext.BookAuthors.Add(authorIs);
                 await dataBaseContext.SaveChangesAsync();
-                return RedirectToAction("BooksInventory");
+                return RedirectToAction("Authors", new { Issuccess = true });
             }
             catch (Exception)
             {
@@ -196,10 +199,10 @@ namespace AppDev2ndCW.Controllers
             var author_data = dataBaseContext.BookAuthors.Where(x => x.Id == id).First();
             dataBaseContext.BookAuthors.Remove(author_data);
             dataBaseContext.SaveChanges();
-            return Redirect("~/Books/BooksInventory");
+            return RedirectToAction("Authors", new { Isdeleteaut = true });
         }
 
-        public async Task<IActionResult> EditAuthors(BookAuthor authorIs, string authorName)
+/*        public async Task<IActionResult> EditAuthors(BookAuthor authorIs, string authorName)
         {
             authorIs.Author = authorName;
 
@@ -213,6 +216,6 @@ namespace AppDev2ndCW.Controllers
             {
                 return null;
             }
-        }
+        }*/
     }
 }

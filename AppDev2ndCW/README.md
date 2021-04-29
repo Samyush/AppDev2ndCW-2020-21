@@ -1,5 +1,11 @@
-﻿Getting Started
+﻿
+Getting Started
 ## @Author team development
+
+
+Date: 29th April 2021 samyush -> 
+					1. Admin and Normal user adding dispute solved
+					2. Word File added for task completion tracking
 
 Controller method work
 
@@ -21,6 +27,7 @@ Controller method work
 					   10. DeleteCustomers(int id) -> deletes the selected customer
 					   11. EditCustomers() -> need to pass id, edits the customer data
 					   12. Add toastr for add, delete user and add, delete customer
+					   13. render customer data in customer datatable
 
 3-> UserServices ->    1.  GetUserById(int id) -> Gets the current user's id
 					   2.  TryValidateUser() -> checks if the credentials entered while logging in is registered in the database or not.
@@ -40,7 +47,7 @@ Controller method work
 					   12. DeleteAuthors(int id)
 					   13. EditAuthors() -> need to pass id while executing
 					   14. Add toastr for add, delete book inventory and add, delete book category
-//
+
 
 --------------------- NOTES BY SOLOMAN --------------------
 Controllers for Update Page (Form)
@@ -59,6 +66,18 @@ and hid overflow to eliminate whitespace in background body!
 >--removed navbar buttons and sign up link in login page
 >--rendered customer data in datatable, added background image to remove whitespace, removed placeholder in login page to eliminated congested space
 //
+					   15. Data render in author data table
+					   16. Add toastr message for add/delete book author
+View Pages:
+						(Home>index)
+						1. Unset background to remove whitespace
+						2. Remove navbar buttons and sign up link in login page
+						3. Remove placeholder in login page to eliminated congested space
+						(Book>Book Inventory)
+						1. Increased table width
+						(Customer)
+						1. Increased table width
+
 Date: 27th April 2021
 samyush- logout directed to index.html
 validation added 
