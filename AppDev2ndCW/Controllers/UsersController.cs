@@ -103,5 +103,19 @@ namespace AppDev2ndCW.Controllers
             //var inactiveItemList = dataBaseContext.BookInventory.Where(x => x.Stocked_Date <= lastDate).ToArray();
             return View(inactiveItemList);
         }
+
+        public IActionResult DeleteAllBooks()
+        {
+            DateTime currentDate = DateTime.Now.Date;
+            DateTime lastDate = currentDate.Subtract(new TimeSpan(31, 0, 0, 0, 0));
+            var inactiveItemList = dataBaseContext.BookInventory.Where(x => x.Sales_Date <= lastDate).ToArray();
+
+            foreach (var books in inactiveItemList)
+            {
+                dataBaseContext.Remove(books);
+                dataBaseContext.SaveChanges();
+            }
+            return Redirect("Dashboard");
+        }
     }
 }

@@ -39,12 +39,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    @foreach (var item in Model)
+                                    { 
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>The Alchemist</td>
-                                        <td>2</td>
-                                        <td>1000</td>
+                                        <th scope="row">@item.Id</th>
+                                        <td>@item.Book_Id</td>
+                                        <td>@item.Quantity</td>
+                                        <td>@item.Total</td>
                                         <td>
                                             <ul>
                                                 <li class="list-inline-item">
@@ -53,6 +54,8 @@
                                             </ul>
                                         </td>
                                     </tr>
+                                    }
+                                    
 
                                 </tbody>
                             </table>

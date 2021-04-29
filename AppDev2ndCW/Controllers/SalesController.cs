@@ -21,9 +21,10 @@ namespace AppDev2ndCW.Controllers
             return View(saleList);
         }
 
-        public IActionResult SaleItems()
+        public IActionResult SaleItems(int id)
         {
-            return View();
+            var saleItemList = databaseContext.SaleItems.Where(x => x.Sale_Id == id).ToArray();
+            return View(saleItemList);
         }
 
         public IActionResult MakeSales()
@@ -112,7 +113,7 @@ namespace AppDev2ndCW.Controllers
             {
                 databaseContext.Sales.Update(sales);
                 await databaseContext.SaveChangesAsync();
-                return RedirectToAction("~List");
+                return RedirectToAction("List");
 
             }
             catch (Exception)
