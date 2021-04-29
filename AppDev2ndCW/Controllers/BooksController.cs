@@ -143,7 +143,7 @@ namespace AppDev2ndCW.Controllers
             return RedirectToAction("BooksInventory", new { Isdelete = true });
         }
 
-        public async Task<IActionResult> EditBooks(BookInventory books, string bookName, string description, int quantity, int rate, int author, int category, DateTime stocked_date)
+        public async Task<IActionResult> EditBooks(BookInventory books, string bookName, string description, int quantity, int rate, int author, int category, DateTime lastStockedDate, DateTime lastSalesDate)
         {
             
             books.Book_name = bookName;
@@ -152,12 +152,13 @@ namespace AppDev2ndCW.Controllers
             books.Price = rate;
             books.Author_Id = author;
             books.Category_Id = category;
-            books.Stocked_Date = stocked_date;
+            books.Stocked_Date = lastStockedDate;
+            books.Sales_Date = lastSalesDate;
             try
             {
                 dataBaseContext.BookInventory.Update(books);
                 await dataBaseContext.SaveChangesAsync();
-                return RedirectToAction("~/Books/BooksInventory");
+                return RedirectToAction("BooksInventory");
             }
             catch (Exception)
             {
@@ -167,9 +168,20 @@ namespace AppDev2ndCW.Controllers
 
         public IActionResult UpdateBooks(int id)
         {
-            ViewBag.categoryList = dataBaseContext.BookCategories.ToArray();
-            ViewBag.authorList = dataBaseContext.BookAuthors.ToArray();
-            ViewBag.books_data = dataBaseContext.BookInventory.Where(x => x.Id == id).First();
+            var category= dataBaseContext.BookCategories.ToArray(); 
+            var author= dataBaseContext.BookAuthors.ToArray();
+            var books = dataBaseContext.BookInventory.ToArray();
+            /*var books_data = dataBaseContext.BookInventory.Where(x => x.Id == id).First();*/
+            var book_data = from c in category
+                            join b in books on c.Id equals b.Category_Id into table1
+                            from b in table1.ToArray().Where(x => x.Id == id).ToArray()
+                            join a in author on b.Author_Id equals a.Id into table2
+                            from a in table2.ToArray()
+         
+                            select new BookAuthorCategoryModel { books = b, categories = c, author = a };
+            ViewBag.categoryList = category;
+            ViewBag.authorList = author;
+            ViewBag.books_data = book_data.First();
             return View();
         }
 

@@ -86,13 +86,33 @@ namespace AppDev2ndCW.Controllers
             return View(inactiveCustomerList);
         }
 
-        public IActionResult OutOfStock()
+        public IActionResult OutOfStock(string sort)
         {
             /*var stockList = dataBaseContext.BookInventory.ToArray(0);
             return View(stockList);*/
             /*return View();*/
             var bookstockList = dataBaseContext.BookInventory.Where(x => x.Stock_Quantity == 0).ToArray();
-            return View(bookstockList);
+            if (sort == "ascending")
+            {
+                var ascendingSort = bookstockList.OrderBy(x => x.Book_name).ToArray();
+                return View(ascendingSort);
+            }
+            else if (sort == "quantity")
+            {
+                var quantitySort = bookstockList.OrderBy(x => x.Stock_Quantity).ToArray();
+                return View(quantitySort);
+            }
+            else if (sort == "stockDate")
+            {
+                var dateSort = bookstockList.OrderByDescending(x => x.Stocked_Date).ToArray();
+                return View(dateSort);
+            }
+            else
+            {
+                return View(bookstockList);
+            }
+           
+            
         }
 
         public IActionResult LongStocked()

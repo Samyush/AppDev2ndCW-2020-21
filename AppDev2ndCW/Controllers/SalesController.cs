@@ -53,11 +53,11 @@ namespace AppDev2ndCW.Controllers
         }
         public IActionResult AddSaleItem()
         {
-            ViewBag.bookList = databaseContext.BookInventory.ToArray();
+            ViewBag.bookList = databaseContext.BookInventory.Where(x=>x.Stock_Quantity>0).ToArray();
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> AddSaleItem(SaleItems saleItems, Sales sales,int sale_id, int book_id, int quantity, int total)
+        public async Task<IActionResult> AddSaleItem(SaleItems saleItems, Sales sales,int book_id, int quantity)
         {
             var saleData = databaseContext.Sales.ToArray();
             var data = saleData.LastOrDefault();
@@ -67,9 +67,13 @@ namespace AppDev2ndCW.Controllers
             saleItems.Book_Id = book_id;
             saleItems.Quantity = quantity;
             saleItems.Total = quantity*rate;
+
+            book_data.Sales_Date = data.Sale_Date;
+            book_data.Stock_Quantity = book_data.Stock_Quantity - quantity;
             try
             {
                 databaseContext.SaleItems.Add(saleItems);
+                databaseContext.BookInventory.Attach(book_data);
                 await databaseContext.SaveChangesAsync();
                 return RedirectToAction("GenerateBill");
             }
@@ -103,15 +107,19 @@ namespace AppDev2ndCW.Controllers
         }
 
         
-        public async Task<IActionResult> EditSales(Sales sales,int customer_id,DateTime sale_Date,int totalPriceAmount)
+        public async Task<IActionResult> EditSales(Sales sales, int customer_id,DateTime sale_Date,int totalPriceAmount)
         {
+            var customer_data = databaseContext.Customers.Where(x => x.Id == customer_id).FirstOrDefault();
+
             sales.Customer_Id = customer_id;
             sales.Sale_Total = totalPriceAmount;
             sales.Sale_Date = sale_Date;
-           
+            customer_data.Last_Purchased_Date = sale_Date;
+            
             try
             {
                 databaseContext.Sales.Update(sales);
+                databaseContext.Customers.Attach(customer_data);
                 await databaseContext.SaveChangesAsync();
                 return RedirectToAction("List");
 

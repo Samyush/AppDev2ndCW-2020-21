@@ -19,7 +19,7 @@
     <div my-4>
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <form action="" method="post">
+                <form action="/Users/OutofStock" method="post">
                     <!--Apply Sort Filters -->
                     <div class="input-group col-lg-12 mb-4">
                         <div class="input-group-prepend">
@@ -27,11 +27,11 @@
                                 <i class="fa fa-filter text-muted"></i>
                             </span>
                         </div>
-                        <select id="customer" name="customer" class="form-control custom-select bg-white border-left-0 border-md">
+                        <select required id="sort" name="sort" class="form-control custom-select bg-white border-left-0 border-md">
                             <option value="">Please choose a sorting filter</option>
-                            <option value="">Item Name (Ascending)</option>
-                            <option value="">Stock Quantity (High to Low)</option>
-                            <option value="">Stocked Date (Descending)</option>
+                            <option value="ascending">Item Name (Ascending)</option>
+                            <option value="quantity">Stock Quantity (High to Low)</option>
+                            <option value="stockDate">Stocked Date (Descending)</option>
                         </select>
                     </div>
 
