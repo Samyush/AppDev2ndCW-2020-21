@@ -36,14 +36,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>tn@tnt.com</td>
-                                        <td>Kathmandu</td>
-                                        <td>9810293849</td>
-                                        <td>Standard</td>
-                                        <td>April 26, 2021</td>
-                                    </tr>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Customer_Name</td>
+                                            <td>@item.Customer_Email</td>
+                                            <td>@item.Customer_Address</td>
+                                            <td>@item.Customer_Contact</td>
+                                            <td>@item.Member_Type</td>
+                                            <td>@item.Last_Purchased_Date</td>
+                                        </tr>
+                                    }
                                 </tbody>
                             </table>
                         </div>

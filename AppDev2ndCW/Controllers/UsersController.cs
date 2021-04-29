@@ -16,6 +16,7 @@ namespace AppDev2ndCW.Controllers
         }
 
         public IActionResult Dashboard(bool IsLogin = false)
+
         {
             ViewBag.isLogin = IsLogin;
             return View();
@@ -71,25 +72,32 @@ namespace AppDev2ndCW.Controllers
         }
         public IActionResult InactiveItems()
         {
-            DateTime currentDate = DateTime.Now.Date;
-            DateTime lastDate = currentDate.Subtract(new TimeSpan(31,0,0,0,0));
-            var inactive = dataBaseContext.BookInventory.Where(x => x.Stocked_Date <=lastDate ).ToArray();
             return View();
         }
 
         public IActionResult InactiveCustomers()
         {
-            return View();
+            DateTime currentDate = DateTime.Now.Date;
+            DateTime lastDate = currentDate.Subtract(new TimeSpan(31, 0, 0, 0, 0));
+            var inactiveCustomerList = dataBaseContext.Customers.Where(x => x.Last_Purchased_Date <= lastDate).ToArray();
+            return View(inactiveCustomerList);
         }
 
         public IActionResult OutOfStock()
         {
-            return View();
+            /*var stockList = dataBaseContext.BookInventory.ToArray(0);
+            return View(stockList);*/
+            /*return View();*/
+            var bookstockList = dataBaseContext.BookInventory.Where(x => x.Stock_Quantity == 0).ToArray();
+            return View(bookstockList);
         }
 
         public IActionResult LongStocked()
         {
-            return View();
+            DateTime currentDate = DateTime.Now.Date;
+            DateTime lastDate = currentDate.Subtract(new TimeSpan(31, 0, 0, 0, 0));
+            var inactiveItemList = dataBaseContext.BookInventory.Where(x => x.Stocked_Date <= lastDate).ToArray();
+            return View(inactiveItemList);
         }
     }
 }
