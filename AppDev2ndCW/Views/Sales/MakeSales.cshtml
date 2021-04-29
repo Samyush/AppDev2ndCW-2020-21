@@ -13,7 +13,7 @@
 
             <!-- Registeration Form -->
             <div class="col-md-7 col-lg-6 ml-auto">
-                <form action="" method="post">
+                <form action="/Sales/AddSale" method="post" >
                     <div class="row">
 
                         <!-- Customer -->
@@ -23,12 +23,12 @@
                                     <i class="fa fa-book text-muted"></i>
                                 </span>
                             </div>
-                            <select id="customer" name="customer" class="form-control custom-select bg-white border-left-0 border-md">
+                            <select id="customer" name="customer_id" class="form-control custom-select bg-white border-left-0 border-md">
                                 <option value="">Please choose a customer</option>
-                                <option value="">James</option>
-                                <option value="">John</option>
-                                <option value="">Joseph</option>
-                                <option value="">Judah</option>
+                                @foreach (var customers in ViewBag.customerList)
+                                { 
+                                    <option value="@customers.Id">@customers.Customer_Name</option>
+                                }
                             </select>
                         </div>
 

@@ -42,6 +42,10 @@ namespace AppDev2ndCW.Controllers
         public IActionResult Profile(int id)
         {
             ViewBag.customer_data = dataBaseContext.Customers.Where(x => x.Id == id).First();
+            DateTime currentDate = DateTime.Now.Date;
+            DateTime lastDate = currentDate.Subtract(new TimeSpan(31, 0, 0, 0, 0));
+            var userHistory = dataBaseContext.Sales.Where(x => x.Customer_Id == id).Where(a => a.Sale_Date >= lastDate).ToArray();
+            ViewBag.history = userHistory;
             return View();
         }
     }

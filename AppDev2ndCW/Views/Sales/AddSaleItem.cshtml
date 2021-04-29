@@ -13,7 +13,7 @@
 
             <!-- Registeration Form -->
             <div class="col-md-7 col-lg-6 ml-auto">
-                <form action="" method="post">
+                <form action="/Sales/AddSaleItem" method="post" >
                     <div class="row">
 
                         <!-- Book -->
@@ -23,12 +23,12 @@
                                     <i class="fa fa-book text-muted"></i>
                                 </span>
                             </div>
-                            <select id="book" name="booktitle" class="form-control custom-select bg-white border-left-0 border-md">
+                            <select id="book" name="book_id" class="form-control custom-select bg-white border-left-0 border-md">
                                 <option value="">Choose the purchased book</option>
-                                <option value="">The Alchemist</option>
-                                <option value="">How's your Soul?</option>
-                                <option value="">Goliath Must Fall</option>
-                                <option value="">In My Dreams</option>
+                                @foreach (var book in ViewBag.bookList)
+                                { 
+                                    <option value="@book.Id">@book.Book_name</option>
+                                }
                             </select>
                         </div>
 
@@ -39,7 +39,7 @@
                                     <i class="fa fa-list-ol text-muted"></i>
                                 </span>
                             </div>
-                            <input id="quantity" type="text" name="number" placeholder="Purchased Quantity" class="form-control bg-white border-left-0 border-md" required>
+                            <input id="quantity" type="text" name="quantity" placeholder="Purchased Quantity" class="form-control bg-white border-left-0 border-md" required>
                         </div>
 
                         <!-- Total -->

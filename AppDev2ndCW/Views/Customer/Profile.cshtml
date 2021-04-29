@@ -93,17 +93,16 @@
                                         <th scope="col">Sale ID</th>
                                         <th scope="col">Sale Date</th>
                                         <th scope="col">Sale Total</th>
-                                        <th scope="col">Customer</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    @foreach (var item in ViewBag.history)
+                                    { 
                                     <tr>
-                                        <th>Sale 101</th>
-                                        <td>26 April, 2021</td>
-                                        <td>Rs 1500</td>
-                                        <td>9813029480</td>
+                                        <th>@item.Id</th>
+                                        <td>@item.Sale_Date</td>
+                                        <td>@item.Sale_Total</td>
                                         <td>
                                             <ul class="list-inline m-0">
                                                 <li class="list-inline-item">
@@ -112,6 +111,8 @@
                                             </ul>
                                         </td>
                                     </tr>
+                                    }
+                                        
 
                                 </tbody>
                             </table>
