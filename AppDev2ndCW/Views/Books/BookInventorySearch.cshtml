@@ -34,8 +34,6 @@
                                         <th scope="col">Category</th>
                                         <th scope="col">Stocked Date</th>
                                         <th scope="col">Stock Quantity</th>
-                                        <th scope="col">Sales Date</th>
-                                        <th scope="col">Action</th>
                                         <th scope="col">Delete</th>
                                     </tr>
                                 </thead>
@@ -48,10 +46,6 @@
                                         <td>Novels</td>
                                         <td>26 April, 2021</td>
                                         <td>100</td>
-                                        <td>28 April, 2021</td>
-                                        <th>
-                                                <a href="@Url.ActionLink("UpdateBooks", "Books")" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                                            </th>
                                         <th>
                                             @*@Url.Action("DeleteBooksInventory", "Books", new { item.Id })*@
                                             <a href="#" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete">

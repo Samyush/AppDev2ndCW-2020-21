@@ -55,7 +55,7 @@ else if (ViewBag.isdelete)
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <div class="bg-white p-5 rounded shadow">
-                    <form action="" method="post">
+                    <form action="/Books/BookInventorySearch" method="post">
                         <!-- Book Input -->
                         <div class="input-group col-lg-12 mb-4">
                             <div class="input-group-prepend">
@@ -64,16 +64,23 @@ else if (ViewBag.isdelete)
                                 </span>
                             </div>
                             <select id="customer" name="customer" class="form-control custom-select bg-white border-left-0 border-md">
-                                <option value="">Please choose a book to view its details</option>
-                                <option value="">The Alchemist</option>
-                                <option value="">How's your Soul?</option>
-                                <option value="">Golaith Must Fall</option>
+                                <option value="">Choose a Category</option>
+                                @foreach (var category in ViewBag.bookList)
+                                {
+                                    <option value="@category.Id"> @category.Book_name</option>
+                                }
                             </select>
                         </div>
 
-                        <div class="text-center">
-                            <button class="btn btn-primary">View Details <i class="fas fa-check ml-2"></i></button>
+                        <div class="card-columns">
+                            <div class="text-center">
+                                <button class="btn btn-primary">View Item Avilability <i class="fas fa-check ml-2"></i></button>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-primary">View Stock Amount <i class="fas fa-check ml-2"></i></button>
+                            </div>
                         </div>
+                        
                     </form>
                 </div>
             </div>
