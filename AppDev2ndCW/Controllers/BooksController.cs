@@ -138,6 +138,7 @@ namespace AppDev2ndCW.Controllers
 
         public async Task<IActionResult> EditBooks(BookInventory books, string bookName, string description, int quantity, int rate, int author, int category, DateTime stocked_date)
         {
+            
             books.Book_name = bookName;
             books.Description = description;
             books.Stock_Quantity = quantity;
@@ -157,8 +158,11 @@ namespace AppDev2ndCW.Controllers
             }
         }
 
-        public IActionResult UpdateBooks()
+        public IActionResult UpdateBooks(int id)
         {
+            ViewBag.categoryList = dataBaseContext.BookCategories.ToArray();
+            ViewBag.authorList = dataBaseContext.BookAuthors.ToArray();
+            ViewBag.books_data = dataBaseContext.BookInventory.Where(x => x.Id == id).First();
             return View();
         }
 
