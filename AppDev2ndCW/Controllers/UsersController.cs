@@ -9,14 +9,14 @@ namespace AppDev2ndCW.Controllers
 {
     public class UsersController : Controller
     {
-        public IActionResult Dashboard(bool IsLogin = false)
         private readonly DataBaseContext dataBaseContext;
 
         public UsersController(DataBaseContext db)
         {
             dataBaseContext = db;
         }
-        public IActionResult Dashboard()
+        public IActionResult Dashboard(bool IsLogin = false)
+
         {
             ViewBag.isLogin = IsLogin;
             return View();
@@ -43,14 +43,17 @@ namespace AppDev2ndCW.Controllers
         public IActionResult InactiveItems()
         {
             DateTime currentDate = DateTime.Now.Date;
-            DateTime lastDate = currentDate.Subtract(new TimeSpan(31));
-            var inactiveItemList = dataBaseContext.BookInventory.Where(x => x.Stocked_Date <=lastDate ).ToArray();
+            DateTime lastDate = currentDate.Subtract(new TimeSpan(31,0,0,0,0));
+            var inactiveItemList = dataBaseContext.BookInventory.Where(x => x.Sales_Date <=lastDate ).ToArray();
             return View(inactiveItemList);
         }
 
         public IActionResult InactiveCustomers()
         {
-            return View();
+            DateTime currentDate = DateTime.Now.Date;
+            DateTime lastDate = currentDate.Subtract(new TimeSpan(31, 0, 0, 0, 0));
+            var inactiveCustomerList = dataBaseContext.Customers.Where(x => x.Last_Purchased_Date <= lastDate).ToArray();
+            return View(inactiveCustomerList);
         }
 
         public IActionResult OutOfStock()
@@ -64,7 +67,10 @@ namespace AppDev2ndCW.Controllers
 
         public IActionResult LongStocked()
         {
-            return View();
+            DateTime currentDate = DateTime.Now.Date;
+            DateTime lastDate = currentDate.Subtract(new TimeSpan(31, 0, 0, 0, 0));
+            var inactiveItemList = dataBaseContext.BookInventory.Where(x => x.Stocked_Date <= lastDate).ToArray();
+            return View(inactiveItemList);
         }
     }
 }
