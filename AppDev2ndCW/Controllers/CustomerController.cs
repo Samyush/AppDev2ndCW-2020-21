@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AppDev2ndCW.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace AppDev2ndCW.Controllers
 
     public class CustomerController : Controller
     {
+        private readonly DataBaseContext dataBaseContext;
         /*
         [Route("")]
         public IActionResult Index()
@@ -16,6 +18,10 @@ namespace AppDev2ndCW.Controllers
             return new ContentResult { Content = "Try"};
         }*/
 
+        public CustomerController(DataBaseContext db)
+        {
+            dataBaseContext = db;
+        }
         public IActionResult PurchaseHistory()
         {
             return View();  
@@ -33,8 +39,9 @@ namespace AppDev2ndCW.Controllers
             return new ContentResult { Content = string.Format("Email: {0}; Passsword: {1};", email, password) };
         }
 
-        public IActionResult Profile()
+        public IActionResult Profile(int id)
         {
+            ViewBag.customer_data = dataBaseContext.Customers.Where(x => x.Id == id).First();
             return View();
         }
     }
