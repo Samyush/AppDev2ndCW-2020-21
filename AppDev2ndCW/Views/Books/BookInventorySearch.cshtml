@@ -1,17 +1,20 @@
-﻿
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
 @{ Layout = "_DashboardLayout"; }
 
 <div class="container py-5">
     <div class="row">
         <div class="col-md-6 mx-auto">
             <div class="text-center">
-                <p class="h3">Long Stocked Items</p>
+                <p class="h3">My Selected Book</p>
                 <div class="row my-4">
                     <div class="col-md-8 mx-auto">
                         <img src="/img/long_stocked.svg" alt="Out of Stock SVG" class="img-fluid" />
                     </div>
                 </div>
-                <p><code>These books have been in stock for a long time.</code></p>
+                <p><code>My Selected Book Details.</code></p>
             </div>
         </div>
     </div>
@@ -33,6 +36,7 @@
                                         <th scope="col">Stock Quantity</th>
                                         <th scope="col">Sales Date</th>
                                         <th scope="col">Action</th>
+                                        <th scope="col">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,12 +49,16 @@
                                         <td>26 April, 2021</td>
                                         <td>100</td>
                                         <td>28 April, 2021</td>
-                                        @*<th>
-                                            <a href="@Url.ActionLink("UpdateBooks", "Books")" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                                        </th>
                                         <th>
-                                            <a href="@Url.Action("DeleteBooksInventory","Books",new { item.Id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
-                                        </th>*@
+                                                <a href="@Url.ActionLink("UpdateBooks", "Books")" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                            </th>
+                                        <th>
+                                            @*@Url.Action("DeleteBooksInventory", "Books", new { item.Id })*@
+                                            <a href="#" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete">
+
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </th>
                                     </tr>
 
                                 </tbody>
@@ -61,9 +69,9 @@
             </div>
         </div>
 
-        <div class="text-center">
+        @*<div class="text-center">
             <button class="btn btn-primary px-4">Remove all Books from Stock <i class="fas fa-minus-square ml-2"></i></button>
-        </div>
+        </div>*@
 
     </div>
 </div>

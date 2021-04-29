@@ -55,7 +55,7 @@ else if (ViewBag.isdelete)
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <div class="bg-white p-5 rounded shadow">
-                    <form action="" method="post">
+                    <form action="/Books/BookInventorySearch" method="post">
                         <!-- Book Input -->
                         <div class="input-group col-lg-12 mb-4">
                             <div class="input-group-prepend">
@@ -63,12 +63,26 @@ else if (ViewBag.isdelete)
                                     <i class="fa fa-book text-muted"></i>
                                 </span>
                             </div>
+
                             <select id="customer" name="customer" class="form-control custom-select bg-white border-left-0 border-md">
-                                <option value="">Please choose a book to view its details</option>
-                                <option value="">The Alchemist</option>
-                                <option value="">How's your Soul?</option>
-                                <option value="">Golaith Must Fall</option>
+                                <option value="">Choose a Category</option>
+                                @try
+                                {
+                                    @foreach (var books in ViewBag.bookList)
+                                    {
+                                        <option value="@books.Id"> @books.Book_name</option>
+                                    }}
+                                catch (Exception)
+                                {
+                                    <option value="">Please choose a book to view its details</option>
+                                    <option value="">ERROR</option>
+                                    <option value="">ERROR</option>
+                                    <option value="">ERROR</option>
+                                }
+
+
                             </select>
+
                         </div>
 
                         <div class="text-center">
@@ -90,35 +104,36 @@ else if (ViewBag.isdelete)
                                 <thead>
                                     <tr>
                                         <th scope="col">Title</th>
-                                        <th scope="col">Author ID</th>
+                                        <th scope="col">Stock Quantity</th>
                                         <th scope="col">Description</th>
-                                        <th scope="col">Category ID</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Stocked Date</th>
-                                        <th scope="col">Stock Quantity</th>
                                         <th scope="col">Sales Date</th>
+                                        <th scope="col">Author ID</th>
+                                        <th scope="col">Category ID</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                        <tr>
-                            <td>@item.Book_name</td>
-                            <td>@item.Author_Id</td>
-                            <td>@item.Description</td>
-                            <td>@item.Category_Id</td>
-                            <td>@item.Price</td>
-                            <td>@item.Stocked_Date</td>
-                            <td>@item.Stock_Quantity</td>
-                            <td>@item.Sales_Date</td>
-                            <th>
-                                <a href="@Url.ActionLink("UpdateBooks", "Books")" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                            </th>
-                            <th>
-                                <a href="@Url.Action("DeleteBooksInventory","Books",new { item.Id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
-                            </th>
-                        </tr>
+                                    <tr>
+                                        <td>@item.Book_name</td>
+                                        <td>@item.Stock_Quantity</td>
+                                        <td>@item.Description</td>
+                                        <td>@item.Price</td>
+                                        <td>@item.Stocked_Date</td>
+                                        <td>@item.Sales_Date</td>
+                                        <td>@item.Author_Id</td>
+                                        <td>@item.Category_Id</td>
+
+                                        <th>
+                                            <a href="@Url.ActionLink("UpdateBooks", "Books")" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                        </th>
+                                        <th>
+                                            <a href="@Url.Action("DeleteBooksInventory","Books",new { item.Id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                                        </th>
+                                    </tr>
 }
 
                                 </tbody>
