@@ -10,7 +10,7 @@
 
             <!-- Update User Form -->
             <div class="col-md-7 col-lg-6 ml-auto">
-                <form action="" method="post">
+                <form action="/Books/EditBooks/@ViewBag.books_data.Id" method="post">
                     <div class="row">
 
                         <!-- Book Title -->
@@ -20,7 +20,7 @@
                                     <i class="fa fa-book text-muted"></i>
                                 </span>
                             </div>
-                            <input id="title" type="text" name="bookName" placeholder="Book Title" class="form-control bg-white border-left-0 border-md" required>
+                            <input id="title" type="text" value="@ViewBag.books_data.Book_name" name="bookName" placeholder="Book Title" class="form-control bg-white border-left-0 border-md" required>
                         </div>
 
 
@@ -31,7 +31,7 @@
                                     <i class="fa fa-envelope text-muted"></i>
                                 </span>
                             </div>
-                            <textarea id="description" name="description" placeholder="Book Description" class="form-control bg-white border-left-0 border-md" rows="8"></textarea>
+                            <textarea id="description" name="description" value="@ViewBag.books_data.Description" placeholder="Book Description" class="form-control bg-white border-left-0 border-md" rows="8"></textarea>
                         </div>
 
                         <!-- Book Category -->
@@ -43,10 +43,11 @@
                             </div>
                             <select id="countryCode" name="category" class="custom-select form-control bg-white border-left-0 border-md h-100 font-weight-bold text-muted" required>
                                 <option value="">Choose a Category</option>
-                                <option value="">Novels</option>
-                                <option value="">Stories</option>
-                                <option value="">Poetry</option>
-                            </select>
+                                @foreach (var category in ViewBag.categoryList)
+                                {
+                                    <option value="@category.Id"> @category.Category</option>
+                                }
+                                </select>
                         </div>
 
 
@@ -57,11 +58,12 @@
                                     <i class="fa fa-address-book text-muted"></i>
                                 </span>
                             </div>
-                            <select id="author" name="author" class="form-control custom-select bg-white border-left-0 border-md" required>
+                            <select id="author"  name="author" class="form-control custom-select bg-white border-left-0 border-md" required>
                                 <option value="">Select an author</option>
-                                <option value="">Judah Smith</option>
-                                <option value="">Emma Jones</option>
-                                <option value="">Vladimir Savchuk</option>
+                                @foreach (var author in ViewBag.authorList)
+                                {
+                                    <option value="@author.Id"> @author.Author</option>
+}
                             </select>
                         </div>
 
@@ -72,7 +74,7 @@
                                     <i class="fa fa-money-bill text-muted"></i>
                                 </span>
                             </div>
-                            <input id="price" type="number" name="rate" placeholder="Price" class="form-control bg-white border-left-0 border-md">
+                            <input id="price" type="number" value="@ViewBag.books_data.Price" name="rate" placeholder="Price" class="form-control bg-white border-left-0 border-md">
                         </div>
 
                         <!-- Stock Quantity -->
@@ -82,7 +84,7 @@
                                     <i class="fa fa-list-ol text-muted"></i>
                                 </span>
                             </div>
-                            <input id="quantity" type="number" name="quantity" placeholder="Quantity in Stock" class="form-control bg-white border-left-0 border-md">
+                            <input id="quantity" type="number" value="@ViewBag.books_data.Stock_Quantity" name="quantity" placeholder="Quantity in Stock" class="form-control bg-white border-left-0 border-md">
                         </div>
 
                         <!-- Last Stocked Date -->
@@ -95,7 +97,7 @@
                                     <i class="fa fa-calendar text-muted"></i>
                                 </span>
                             </div>
-                            <input type="date" name="lastStockedDate" placeholder="" class="form-control py-4 px-4" id="lastStockedDate">
+                            <input type="date" name="lastStockedDate" value="@ViewBag.books_data.Stocked_Date" placeholder="" class="form-control py-4 px-4" id="lastStockedDate">
                         </div>
 
                         <!-- Last Sales Date -->
@@ -108,7 +110,7 @@
                                     <i class="fa fa-calendar text-muted"></i>
                                 </span>
                             </div>
-                            <input type="date" name="lastSalesDate" placeholder="" class="form-control py-4 px-4" id="lastSalesDate">
+                            <input type="date" name="lastSalesDate" value="@ViewBag.books_data.Sales_Date" placeholder="" class="form-control py-4 px-4" id="lastSalesDate">
                         </div>
 
                         <!-- Submit Button -->

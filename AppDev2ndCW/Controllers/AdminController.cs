@@ -115,7 +115,7 @@ namespace AppDev2ndCW.Controllers
         }
 
         
-        public async Task<IActionResult> EditUsers(Users users, string fullName, string email, string phone, string jobtitle, string password)
+        public async Task<IActionResult> EditUsers(Users users,string fullName, string email, string phone, string jobtitle, string password)
         {
             users.name = fullName;
             users.email = email;
@@ -135,8 +135,9 @@ namespace AppDev2ndCW.Controllers
             
         }
 
-        public IActionResult UpdateUsers()
+        public IActionResult UpdateUsers(int id)
         {
+            ViewBag.user_data = dataBaseContext.Users.Where(x => x.id == id).First();
             return View();
         }
 
@@ -177,8 +178,9 @@ namespace AppDev2ndCW.Controllers
             }
         }
 
-        public IActionResult UpdateCustomers()
+        public IActionResult UpdateCustomers(int id)
         {
+            ViewBag.customer_data = dataBaseContext.Customers.Where(x => x.Id == id).First();
             return View();
         }
 

@@ -113,7 +113,7 @@ else if (ViewBag.isdelete)
                             <td>@item.Stock_Quantity</td>
                             <td>@item.Sales_Date</td>
                             <th>
-                                <a href="@Url.ActionLink("UpdateBooks", "Books")" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                <a href="@Url.ActionLink("UpdateBooks", "Books", new { item.Id})" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                             </th>
                             <th>
                                 <a href="@Url.Action("DeleteBooksInventory","Books",new { item.Id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>

@@ -10,9 +10,8 @@
 
             <!-- Update User Form -->
             <div class="col-md-7 col-lg-6 ml-auto">
-                <form action="" method="post">
+                <form action="/Admin/EditUsers/@ViewBag.user_data.id" method="post">
                     <div class="row">
-
                         <!-- Name -->
                         <div class="input-group col-lg-12 mb-4">
                             <div class="input-group-prepend">
@@ -20,7 +19,7 @@
                                     <i class="fa fa-user text-muted"></i>
                                 </span>
                             </div>
-                            <input id="fullName" type="text" name="fullName" placeholder="Full Name" class="form-control bg-white border-left-0 border-md" required>
+                            <input id="fullName" type="text" name="fullName" value="@ViewBag.user_data.name" placeholder="Full Name" class="form-control bg-white border-left-0 border-md" required>
                         </div>
 
                         <!-- Email Address -->
@@ -30,7 +29,7 @@
                                     <i class="fa fa-envelope text-muted"></i>
                                 </span>
                             </div>
-                            <input id="email" type="email" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md" required>
+                            <input id="email" type="email" name="email" value="@ViewBag.user_data.email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md" required>
                         </div>
 
                         <!-- Contact -->
@@ -43,7 +42,7 @@
                             <select id="countryCode" name="countryCode" style="max-width: 80px" class="custom-select form-control bg-white border-left-0 border-md h-100 font-weight-bold text-muted">
                                 <option value="">+977</option>
                             </select>
-                            <input id="phoneNumber" type="number" name="phone" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3" required>
+                            <input id="phoneNumber" type="number" value="@ViewBag.user_data.contacts" name="phone" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3" required>
                         </div>.
 
 
@@ -54,11 +53,21 @@
                                     <i class="fa fa-user-tie text-muted"></i>
                                 </span>
                             </div>
-                            <select id="job" name="jobtitle" class="form-control custom-select bg-white border-left-0 border-md">
+                            <select id="job" name="jobtitle" class="form-control custom-select bg-white border-left-0 border-md" required>
                                 <option value="">Choose the account type</option>
                                 <option value="Admin">Admin</option>
                                 <option value="Normal">Normal</option>
                             </select>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-lock text-muted"></i>
+                                </span>
+                            </div>
+                            <input id="password" type="text" name="password" value="@ViewBag.user_data.password" placeholder="password" class="form-control bg-white border-left-0 border-md" required>
                         </div>
 
                         <!-- Submit Button -->

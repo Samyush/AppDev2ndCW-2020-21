@@ -79,7 +79,7 @@
                                                     <a href="@Url.ActionLink("Profile", "Customer")" class="btn btn-warning btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="View Orders History"><i class="fa fa-table"></i></a>
                                                 </li>
                                                 <li class="list-inline-item">
-                                                    <a href="@Url.ActionLink("UpdateCustomers", "Admin")" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                                    <a href="@Url.ActionLink("UpdateCustomers", "Admin", new { item.Id})" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                                                 </li>
                                                 <li class="list-inline-item">
                                                     <a href="@Url.Action("DeleteCustomers","Admin",new { item.Id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>

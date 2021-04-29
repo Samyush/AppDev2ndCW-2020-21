@@ -9,7 +9,7 @@
 
             <!-- Update Customer Form -->
             <div class="col-md-7 col-lg-6 ml-auto">
-                <form action="" method="post">
+                <form action="/Admin/EditCustomers/@ViewBag.customer_data.Id" method="post">
                     <div class="row">
 
                         <!-- Name -->
@@ -19,7 +19,7 @@
                                     <i class="fa fa-user text-muted"></i>
                                 </span>
                             </div>
-                            <input id="customerName" type="text" name="customerName" placeholder="Customer Name" class="form-control bg-white border-left-0 border-md" required>
+                            <input id="customerName" type="text" value="@ViewBag.customer_data.Customer_Name" name="customerName" placeholder="Customer Name" class="form-control bg-white border-left-0 border-md" required>
                         </div>
 
                         <!-- Email Address -->
@@ -29,7 +29,7 @@
                                     <i class="fa fa-envelope text-muted"></i>
                                 </span>
                             </div>
-                            <input id="email" type="email" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md" required>
+                            <input id="email" type="email" value="@ViewBag.customer_data.Customer_Email" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md" required>
                         </div>
 
                         <!-- Contact -->
@@ -42,7 +42,7 @@
                             <select id="countryCode" name="countryCode" style="max-width: 80px" class="custom-select form-control bg-white border-left-0 border-md h-100 font-weight-bold text-muted">
                                 <option value="">+977</option>
                             </select>
-                            <input id="phoneNumber" type="number" name="phone" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3" required>
+                            <input id="phoneNumber" type="number" name="phone" value="@ViewBag.customer_data.Customer_Contact" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3" required>
                         </div>.
 
                         <!-- Customer Address -->
@@ -52,7 +52,7 @@
                                     <i class="fa fa-map-marker-alt text-muted"></i>
                                 </span>
                             </div>
-                            <input id="customerAddress" type="text" name="customerAddress" placeholder="Customer Address" class="form-control bg-white border-left-0 border-md" required>
+                            <input id="customerAddress" type="text" value="@ViewBag.customer_data.Customer_Address" name="customerAddress" placeholder="Customer Address" class="form-control bg-white border-left-0 border-md" required>
                         </div>
 
 
@@ -77,10 +77,10 @@
                         <div class="input-group col-lg-12 mb-4">
                             <div class="input-group-prepend">
                                 <span class="input-group-text bg-white px-4 border-md border-right-0">
-                                    <i class="fa fa-calendar text-muted"></i>
+                                    <i class="fa fa-calendar text-muted" ></i>
                                 </span>
                             </div>
-                            <input type="date" name="lastDate" placeholder="" class="form-control py-4 px-4" id="lastPurchasedDate">
+                            <input type="date" name="lastDate" value="@ViewBag.customer_data.Last_Purchased_Date" placeholder="" class="form-control py-4 px-4" id="lastPurchasedDate">
                         </div>
 
 
