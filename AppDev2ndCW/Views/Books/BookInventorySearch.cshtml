@@ -30,22 +30,45 @@
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Title</th>
-                                        <th scope="col">Author</th>
-                                        <th scope="col">Category</th>
-                                        <th scope="col">Stocked Date</th>
-                                        <th scope="col">Stock Quantity</th>
+                                        @if (ViewBag.buttonvalue == "stock")
+                                        {
+                                            <th scope="col">Author</th>
+                                            <th scope="col">Category</th>
+                                            <th scope="col">Stocked Date</th>
+                                            <th scope="col">Stock Quantity</th>
+                                        }
+                                        else if (ViewBag.buttonvalue == "availability")
+                                        { 
+                                            <th scope="col">Availability</th>
+                                        }
                                         <th scope="col">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    @foreach (var book in ViewBag.bookList)
+                                    {
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>The Alchemist</td>
-                                        <td>Paulo Coehelo</td>
-                                        <td>Novels</td>
-                                        <td>26 April, 2021</td>
-                                        <td>100</td>
+                                        <td>@book.Book_name</td>
+                                        @if (ViewBag.buttonvalue == "stock")
+                                        {
+                                            <td>@book.Author_Id</td>
+                                            <td>@book.Category_Id</td>
+                                            <td>@book.Stocked_Date</td>
+                                            <td>@book.Stock_Quantity</td>
+                                        }
+                                        else if (ViewBag.buttonvalue == "availability")
+                                        {
+                                            @if (book.Stock_Quantity == 0)
+                                            {
+                                                <td>Not Available</td>
+                                            }
+                                            else 
+                                            {
+                                                <td>Available</td>
+                                            }
+                                        }
+
                                         <th>
                                             @*@Url.Action("DeleteBooksInventory", "Books", new { item.Id })*@
                                             <a href="#" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete">
@@ -54,6 +77,8 @@
                                             </a>
                                         </th>
                                     </tr>
+                                    }
+
 
                                 </tbody>
                             </table>

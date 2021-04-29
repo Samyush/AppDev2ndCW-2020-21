@@ -29,12 +29,14 @@
                                     <i class="fa fa-book text-muted"></i>
                                 </span>
                             </div>
-                            <select id="customer" name="customer" class="form-control custom-select bg-white border-left-0 border-md">
+                            <select required id="customer" name="customer" class="form-control custom-select bg-white border-left-0 border-md">
                                 <option value="">Please choose a customer</option>
-                                <option value="">James</option>
-                                <option value="">John</option>
-                                <option value="">Joseph</option>
-                                <option value="">Judah</option>
+                                @foreach (var customer in Model)
+                                {
+                                    <option value="@customer.Id">@customer.Customer_Name</option>
+                                    
+                                }
+
                             </select>
                         </div>
 

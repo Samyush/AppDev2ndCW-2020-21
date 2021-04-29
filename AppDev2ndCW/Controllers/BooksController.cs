@@ -36,8 +36,15 @@ namespace AppDev2ndCW.Controllers
             return View(bookList);
         }
 
-        public IActionResult BookInventorySearch(int id)
+        public IActionResult BookInventorySearch(int book_id, string button)
         {
+            ViewBag.bookList = dataBaseContext.BookInventory.Where(x => x.Id == book_id).ToArray();
+            string buttonValue="";
+            if (button == "availability")
+            { buttonValue = button; }
+            else if (button == "stock")
+            { buttonValue = "stock"; }
+            ViewBag.buttonvalue = buttonValue;
             return View();
         }
        
