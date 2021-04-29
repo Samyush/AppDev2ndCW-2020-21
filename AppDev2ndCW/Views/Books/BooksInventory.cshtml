@@ -63,7 +63,7 @@ else if (ViewBag.isdelete)
                                     <i class="fa fa-book text-muted"></i>
                                 </span>
                             </div>
-                            <select id="book" name="book_id" class="form-control custom-select bg-white border-left-0 border-md" required>
+                            <select id="book" name="book_id" class="form-control custom-select bg-white border-left-0 border-md" >
                                 <option value="">Choose a Book</option>
                                 @foreach (var book in ViewBag.bookList)
                                 {
@@ -78,6 +78,9 @@ else if (ViewBag.isdelete)
                             </div>
                             <div class="text-center">
                                 <button class="btn btn-primary" name="button" value="stock">View Stock Amount <i class="fas fa-check ml-2"></i></button>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-primary" name="button" value="sortQuantity">Sort By Quantity <i class="fas fa-check ml-2"></i></button>
                             </div>
                         </div>
                         
@@ -101,8 +104,8 @@ else if (ViewBag.isdelete)
                                         <th scope="col">Description</th>
                                         <th scope="col">Category ID</th>
                                         <th scope="col">Price</th>
-                                        <th scope="col">Stocked Date</th>
                                         <th scope="col">Stock Quantity</th>
+                                        <th scope="col">Stocked Date</th>
                                         <th scope="col">Sales Date</th>
                                         <th scope="col">Action</th>
                                     </tr>
@@ -110,22 +113,22 @@ else if (ViewBag.isdelete)
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                        <tr>
-                            <td>@item.Book_name</td>
-                            <td>@item.Author_Id</td>
-                            <td>@item.Description</td>
-                            <td>@item.Category_Id</td>
-                            <td>@item.Price</td>
-                            <td>@item.Stocked_Date</td>
-                            <td>@item.Stock_Quantity</td>
-                            <td>@item.Sales_Date</td>
-                            <th>
-                                <a href="@Url.ActionLink("UpdateBooks", "Books", new { item.Id})" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
-                            </th>
-                            <th>
-                                <a href="@Url.Action("DeleteBooksInventory","Books",new { item.Id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
-                            </th>
-                        </tr>
+                                    <tr>
+                                        <td>@item.Book_name</td>
+                                        <td>@item.Author_Id</td>
+                                        <td>@item.Description</td>
+                                        <td>@item.Category_Id</td>
+                                        <td>@item.Price</td>
+                                        <td>@item.Stock_Quantity</td>
+                                        <td>@item.Stocked_Date</td>
+                                        <td>@item.Sales_Date</td>
+                                        <th>
+                                            <a href="@Url.ActionLink("UpdateBooks", "Books", new { item.Id})" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                        </th>
+                                        <th>
+                                            <a href="@Url.Action("DeleteBooksInventory","Books",new { item.Id} )" class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                                        </th>
+                                    </tr>
 }
 
                                 </tbody>

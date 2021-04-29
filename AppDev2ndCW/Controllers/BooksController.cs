@@ -33,17 +33,28 @@ namespace AppDev2ndCW.Controllers
             ViewBag.bookList = dataBaseContext.BookInventory.ToArray();
 
             var bookList = dataBaseContext.BookInventory.ToArray();
+            
             return View(bookList);
         }
 
         public IActionResult BookInventorySearch(int book_id, string button)
         {
-            ViewBag.bookList = dataBaseContext.BookInventory.Where(x => x.Id == book_id).ToArray();
+            var bookList = dataBaseContext.BookInventory.Where(x => x.Id == book_id).ToArray();
+            var book_data = dataBaseContext.BookInventory.ToArray();
             string buttonValue="";
             if (button == "availability")
-            { buttonValue = button; }
+            { buttonValue = button;
+                ViewBag.bookList = bookList;
+            }
             else if (button == "stock")
-            { buttonValue = "stock"; }
+            { buttonValue = "stock";
+                ViewBag.bookList = bookList;
+            }
+            else if (button == "sortQuantity")
+            { buttonValue = "sortQuantity";
+                var dateSort = book_data.OrderByDescending(x => x.Stock_Quantity).ToArray();
+                ViewBag.bookList = dateSort;
+            }
             ViewBag.buttonvalue = buttonValue;
             return View();
         }

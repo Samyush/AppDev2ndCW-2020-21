@@ -38,8 +38,15 @@
                                             <th scope="col">Stock Quantity</th>
                                         }
                                         else if (ViewBag.buttonvalue == "availability")
-                                        { 
+                                        {
                                             <th scope="col">Availability</th>
+                                        }
+                                        else if (ViewBag.buttonvalue == "sortQuantity")
+                                        {
+                                            <th scope="col">StockQuantity</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Stocked Date</th>
+                                            <th scope="col">Sales Date</th>
                                         }
                                         <th scope="col">Delete</th>
                                     </tr>
@@ -63,10 +70,17 @@
                                             {
                                                 <td>Not Available</td>
                                             }
-                                            else 
+                                            else
                                             {
                                                 <td>Available</td>
                                             }
+                                        }
+                                        else if (ViewBag.buttonvalue == "sortQuantity")
+                                        {
+                                            <td>@book.Stock_Quantity</td>
+                                            <td>@book.Price</td>
+                                            <td>@book.Stocked_Date</td>
+                                            <td>@book.Sales_Date</td>
                                         }
 
                                         <th>
