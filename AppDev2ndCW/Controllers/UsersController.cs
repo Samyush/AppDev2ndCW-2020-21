@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AppDev2ndCW.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,12 @@ namespace AppDev2ndCW.Controllers
 {
     public class UsersController : Controller
     {
+        private readonly DataBaseContext dataBaseContext;
+
+        public UsersController(DataBaseContext db)
+        {
+            dataBaseContext = db;
+        }
         public IActionResult Dashboard()
         {
             return View();
@@ -33,7 +40,10 @@ namespace AppDev2ndCW.Controllers
 
         public IActionResult InactiveItems()
         {
-            return View();
+            DateTime currentDate = DateTime.Now.Date;
+            DateTime lastDate = currentDate.Subtract(new TimeSpan(31));
+            var inactiveItemList = dataBaseContext.BookInventory.Where(x => x.Stocked_Date <=lastDate ).ToArray();
+            return View(inactiveItemList);
         }
 
         public IActionResult InactiveCustomers()
@@ -43,7 +53,11 @@ namespace AppDev2ndCW.Controllers
 
         public IActionResult OutOfStock()
         {
-            return View();
+            /*var stockList = dataBaseContext.BookInventory.ToArray(0);
+            return View(stockList);*/
+            /*return View();*/
+            var bookstockList = dataBaseContext.BookInventory.Where(x => x.Stock_Quantity == 0).ToArray();
+            return View(bookstockList);
         }
 
         public IActionResult LongStocked()
