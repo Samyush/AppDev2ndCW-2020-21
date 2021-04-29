@@ -33,8 +33,7 @@ namespace AppDev2ndCW.Controllers
             return new ContentResult { Content = string.Format("Email: {0}; Passsword: {1};", email, password) };
         }
 
-        [Route("profile")]
-        public IActionResult CustomerProfile()
+        public IActionResult Profile()
         {
             return View();
         }

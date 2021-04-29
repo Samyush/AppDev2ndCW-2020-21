@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-6 mx-auto">
             <div class="text-center">
-                <p class="h3">Manage Customers <i class="fas fa-users ml-2"></i></p>
+                <p class="h3">Our Customers <i class="fas fa-users ml-2"></i></p>
                 <div class="row my-4">
                     <div class="col-md-8 mx-auto">
                         <img src="/img/customers.svg" alt="Users SVG" class="img-fluid" />
@@ -18,6 +18,34 @@
     </div>
 
     <div my-4>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="bg-white p-5 rounded shadow">
+                    <form action="" method="post">
+                        <!-- Author Input -->
+                        <div class="input-group col-lg-12 mb-4">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                    <i class="fa fa-book text-muted"></i>
+                                </span>
+                            </div>
+                            <select id="customer" name="customer" class="form-control custom-select bg-white border-left-0 border-md">
+                                <option value="">Please choose a customer</option>
+                                <option value="">James</option>
+                                <option value="">John</option>
+                                <option value="">Joseph</option>
+                                <option value="">Judah</option>
+                            </select>
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-primary">View Customer<i class="fas fa-eye ml-2"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <div class="row py-5">
             <div class="col-lg-11 mx-auto">
                 <div class="card rounded shadow border-0">
@@ -47,6 +75,9 @@
                                         <td>@item.Last_Purchased_Date</td>
                                         <td>
                                             <ul class="list-inline m-0">
+                                                <li class="list-inline-item">
+                                                    <a href="@Url.ActionLink("Profile", "Customer")" class="btn btn-warning btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="View Orders History"><i class="fa fa-table"></i></a>
+                                                </li>
                                                 <li class="list-inline-item">
                                                     <a href="@Url.ActionLink("UpdateCustomers", "Admin")" class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
                                                 </li>

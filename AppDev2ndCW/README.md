@@ -47,6 +47,25 @@ Controller method work
 					   12. DeleteAuthors(int id)
 					   13. EditAuthors() -> need to pass id while executing
 					   14. Add toastr for add, delete book inventory and add, delete book category
+
+
+--------------------- NOTES BY SOLOMAN --------------------
+Controllers for Update Page (Form)
+	1. Book Update --> UpdateBooks() - (BooksController)
+	2. Users Update --> UpdateUsers() - (AdminController)
+	2. Customers Update --> UpdateCustomers() - (AdminController)
+
+	-> Other Controllers
+		1. Sale Items -->  SaleItems() - (Sales)   : the user needs to be redirected to sale items after inserting new sale object
+		2. Customer Profile ---> Profile() - (Customer)		:where the purchase history of the customer would be shown
+--------------------------------------------------------------
+
+
+>--unsetted background image in header.masthead
+and hid overflow to eliminate whitespace in background body!
+>--removed navbar buttons and sign up link in login page
+>--rendered customer data in datatable, added background image to remove whitespace, removed placeholder in login page to eliminated congested space
+//
 					   15. Data render in author data table
 					   16. Add toastr message for add/delete book author
 View Pages:
@@ -58,7 +77,6 @@ View Pages:
 						1. Increased table width
 						(Customer)
 						1. Increased table width
-						
 
 Date: 27th April 2021
 samyush- logout directed to index.html

@@ -6,13 +6,13 @@
 @{
     Layout = "_DashboardLayout";
 }
-<div class="alert alert-success alert-dismissible fade show" role="alert">
+@*<div class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>Successfully Logged In!</strong>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-
+*@
 @if (ViewBag.iscustadd)
 {
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -64,7 +64,7 @@ else if (ViewBag.islogin)
     var c = claimsPrinciple.Where(a => a.Type == "role").FirstOrDefault();
     @if (@c.Value.Equals("Admin"))
     {
-        <h1>@c.Value</h1>
+        
         <h1>Welcome Admin!!!</h1>
     }
 }

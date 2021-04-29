@@ -9,6 +9,7 @@ namespace AppDev2ndCW.Controllers
 {
     public class UsersController : Controller
     {
+        public IActionResult Dashboard(bool IsLogin = false)
         private readonly DataBaseContext dataBaseContext;
 
         public UsersController(DataBaseContext db)
@@ -17,6 +18,7 @@ namespace AppDev2ndCW.Controllers
         }
         public IActionResult Dashboard()
         {
+            ViewBag.isLogin = IsLogin;
             return View();
         }
 
@@ -37,7 +39,7 @@ namespace AppDev2ndCW.Controllers
         {
             return View();
         }
-
+        
         public IActionResult InactiveItems()
         {
             DateTime currentDate = DateTime.Now.Date;
