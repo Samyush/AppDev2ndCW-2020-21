@@ -2,13 +2,26 @@
 @{
     Layout = "_DashboardLayout";
 }
-
+@if (ViewBag.stockData =="hasValue")
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>These books are almost out of stock!</strong>
+        @foreach (var books in ViewBag.books)
+        { 
+            <p>=> @books.Book_name</p>
+        }
+        
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
 <div class="container-fluid px-xl-5">
     <section class="pt-5">
         <div class="row">
             <div class="col-xl-5 col-lg-6 mb-4 mb-xl-0 mx-auto">
-                    <img src="~/img/dashboard.svg" alt="Add User SVG" class="img-fluid" />
-                    <p class="text-center h3 my-3">Welcome to your Dashboard! <i class="fas fa-th text-primary"></i></p>
+                <img src="~/img/dashboard.svg" alt="Add User SVG" class="img-fluid" />
+                <p class="text-center h3 my-3">Welcome to your Dashboard! <i class="fas fa-th text-primary"></i></p>
             </div>
         </div>
     </section>

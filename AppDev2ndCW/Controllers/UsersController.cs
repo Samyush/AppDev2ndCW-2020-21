@@ -15,9 +15,22 @@ namespace AppDev2ndCW.Controllers
             dataBaseContext = db;
         }
 
-        public IActionResult Dashboard(bool IsLogin = false)
+        public IActionResult Dashboard(bool IsLogin = false )
 
         {
+            if (IsLogin)
+            {
+                var stock = dataBaseContext.BookInventory.Where(x => x.Stock_Quantity <= 10).ToArray();
+                if (stock.Length != 0)
+                {
+                    ViewBag.stockData = "hasValue";
+                    ViewBag.books = stock;
+                }
+                else 
+                {
+                    ViewBag.stockData = "null";
+                }
+            }
             ViewBag.isLogin = IsLogin;
             return View();
         }
