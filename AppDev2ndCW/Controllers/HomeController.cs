@@ -76,7 +76,6 @@ namespace AppDev2ndCW.Controllers
                 else
                 {
                         return RedirectToAction("Dashboard", "Users", new { IsLogin = true });
-                    
                 }
             }
             else
@@ -84,7 +83,6 @@ namespace AppDev2ndCW.Controllers
                 TempData["Error"] = "Invalid username or password";
                 return Redirect("/");
             }
-            
         }
 
         //logout of the appliation 
