@@ -8,6 +8,9 @@ namespace AppDev2ndCW.Models
 {
     public class DataBaseContext : DbContext
     {
+        // as per the entity framework this code insures if the database had been created or not, plus if not created it creates automatically
+        // and DB context has also been implemented in sartup.cs
+        // all public DBSet are for creating tables in the database
         public DbSet<Users> Users { get; set; }
         public DbSet<Customers> Customers { get; set; }
         public DbSet<BookAuthor> BookAuthors { get; set; }
@@ -24,3 +27,4 @@ namespace AppDev2ndCW.Models
     }
    
 }
+
