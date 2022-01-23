@@ -30,11 +30,17 @@ namespace AppDev2ndCW
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataBaseContext>(options =>
-            {
-                var connectionString = Configuration.GetConnectionString("DataBaseContext");
-                options.UseSqlServer(connectionString);
-            });
+           services.AddDbContext<DataBaseContext>(options =>
+           options.UseSqlServer(
+                         Configuration.GetConnectionString("DataBaseContext"),
+                         b => b.MigrationsAssembly(typeof(DataBaseContext).Assembly.FullName)));
+
+            //services.AddDbContext<DataBaseContext>(options =>
+            //{
+            //    var connectionString = Configuration.GetConnectionString("DataBaseContext");
+            //    options.UseSqlServer(connectionString);
+            //});
+
             services.AddScoped<UserService>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(

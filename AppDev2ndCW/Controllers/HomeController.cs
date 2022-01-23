@@ -32,13 +32,13 @@ namespace AppDev2ndCW.Controllers
         //need to remove register from home
         public IActionResult Register(Users users)
         {
-            /*users.contacts = "9860810828";
+            users.contacts = "9860810828";
             users.email = "admin@admin.com";
             users.name = "admin";
             users.password = "admin";
             users.role = "admin";
             dataBaseContext.Users.Add(users);
-            dataBaseContext.SaveChanges();*/
+            dataBaseContext.SaveChanges();
             return View();
         }
 
