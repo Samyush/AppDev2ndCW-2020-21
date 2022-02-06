@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using AppDev2ndCW.Services;
+using System.Reflection;
 
 namespace AppDev2ndCW
 {
@@ -32,9 +33,23 @@ namespace AppDev2ndCW
         {
             services.AddDbContext<DataBaseContext>(options =>
             {
+
+                // Configure the context to use Microsoft SQL Server.
+                options.UseSqlServer(Configuration["ConnectionString"], sqlServerOptionsAction: sqlOptions =>
+                {
+                    sqlOptions.MigrationsAssembly(typeof(Program).GetTypeInfo().Assembly.GetName().Name);
+                });
+
+                // Register the entity sets needed by OpenIddict.
+                // Note: use the generic overload if you need
+                // to replace the default OpenIddict entities.
+            });
+
+          /*  services.AddDbContext<DataBaseContext>(options =>
+            {
                 var connectionString = Configuration.GetConnectionString("DataBaseContext");
                 options.UseSqlServer(connectionString);
-            });
+            });*/
             services.AddScoped<UserService>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(
