@@ -58,20 +58,22 @@ namespace AppDev2ndCW.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(string email, string contact, string ReturnUrl)
+        public async Task<IActionResult> Login(string email, string contact, string returnUrl)
         {
             //login functionality
-            ViewData["ReturnUrl"] = ReturnUrl;
+            ViewData["ReturnUrl"] = returnUrl;
 
+            //the out parameter type is an alternative for return as it returns a variable named as claims
+            //which is in the UserServices
             if (_userService.TryValidateUser(email,contact, out List<Claim> claims))
             {
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
                 await HttpContext.SignInAsync(claimsPrincipal);
-                if (ReturnUrl != null)
+                if (returnUrl != null)
                 {
-                    return Redirect(ReturnUrl);
+                    return Redirect(returnUrl);
                 }
                 else
                 {

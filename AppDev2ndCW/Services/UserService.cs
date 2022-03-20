@@ -22,12 +22,15 @@ namespace AppDev2ndCW.Services
             return appUser;
         }
 
+        //the out parameter type is an alternative for return as it returns a variable named as claims
         internal bool TryValidateUser (string email, string contact, out List<Claim> claims)
         {
-            claims = new List<Claim>();
+            //claims = new List<Claim>();
+            
+            //the above method for initializing object can be done as bellow too
+            claims = new ();
             var appUser = _context.Users
-                .Where(a => a.email == email)
-                .Where(a => a.contacts == contact).FirstOrDefault();
+                .Where(a => a.email == email).FirstOrDefault(a => a.contacts == contact);
             if (appUser is null)
             {
                 return false;
