@@ -32,7 +32,7 @@ namespace AppDev2ndCW.Controllers
         //need to remove register from home
         public IActionResult Register(Users users)
         {
-            users.contacts = "9860810828";
+            users.contacts = "1231231231";
             users.email = "admin@admin.com";
             users.name = "admin";
             users.password = "admin";
